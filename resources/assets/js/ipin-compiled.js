@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+//require('./bootstrap');
 
 window.Vue = require('vue');
 
@@ -20,3 +20,5 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+require('../../../node_modules/mdbootstrap/js/bootstrap.min');

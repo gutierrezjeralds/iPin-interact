@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/compiled.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/ipin-compiled.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -75,6 +76,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/compiled.min.js') }}"></script>
+    <script src="{{ asset('js/ipin-compiled.js') }}"></script>
 </body>
 </html>
