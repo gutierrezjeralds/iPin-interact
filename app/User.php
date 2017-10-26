@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use YoHang88\LetterAvatar\LetterAvatar;
 
 class User extends Authenticatable
 {
@@ -30,4 +31,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getAvatarAttribute(){
+        $full_name = $this->first_name . ' ' . $this->last_name;
+        return new LetterAvatar($full_name, 'circle', 40);
+    }
 }

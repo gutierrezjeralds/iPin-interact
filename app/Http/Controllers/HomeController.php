@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        Javascript::put(['user_id' => $user->id, 'user_fullname' => $user->first_name . ' ' . $user->last_name, 'username' => $user->username]);
+        
         return view('home');
     }
 }
