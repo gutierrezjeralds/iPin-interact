@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role_id', 'first_name', 'last_name', 'email', 'username', 'gender', 'birthday', 'password',
+        'role_id', 'fullname', 'email', 'username', 'password',
     ];
     
     protected $dates = ['deleted_at'];
@@ -33,7 +33,7 @@ class User extends Authenticatable
     ];
 
     public function getAvatarAttribute(){
-        $full_name = $this->first_name . ' ' . $this->last_name;
+        $full_name = $this->fullname;
         return new LetterAvatar($full_name, 'circle', 40);
     }
 }

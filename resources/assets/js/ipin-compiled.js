@@ -18,7 +18,8 @@ window.Vue = require('vue');
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#ipin-app'
 });
 
 require('../../../node_modules/mdbootstrap/js/bootstrap.min');
+require('./components/common');

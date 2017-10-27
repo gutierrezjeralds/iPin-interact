@@ -15,11 +15,13 @@
 //     return view('welcome');
 // });
 
+Route::get('/',[
+    'uses' => 'HomeController@index',
+    'as' => 'home'
+]);
+
 Auth::routes();
 
 Route::group(['middleware'=>'auth'], function(){
-	Route::get('/',[
-        'uses' => 'HomeController@index',
-        'as' => 'home'
-    ]);
+	
 });
