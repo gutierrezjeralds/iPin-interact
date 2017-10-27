@@ -34,19 +34,19 @@
                         <li class="nav-item nav-item-profile-menu dropdown {{ Request::route()->getName() == 'profile' ? 'active' : ''}}">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{auth()->user()->avatar}}" class="img-fluid rounded-circle z-depth-0 header-avatar-img">
-                                <span class="navbar-menu-title" style="display: none;">{{Auth::user()->first_name}}</span>
+                                <span class="navbar-menu-title" style="display: none;"> {{Auth::user()->fullname}}</span>
                             </a>
                             <div class="dropdown-menu dropdown-success" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="media mt-1">
                                     <a href="/{{Auth::user()->username}}">
                                         <div class="media-left view overlay hm-white-sligh">
-                                            <img class="d-flex align-self-center mr-3 avatar-header-dropdown-img img-fluid rounded-circle z-depth-0" src="{{auth()->user()->avatar}}"/>
+                                            <img class="d-flex align-self-center mr-3 avatar-header-dropdown-img img-fluid rounded-circle z-depth-0 border" src="{{auth()->user()->avatar}}"/>
                                             <div class="mask waves-effect waves-light"></div>
                                         </div>
                                     </a>
                                     <div class="media-body">
                                         <span class="mt-0 media-heading text-submit-color h5 text-name-header" title="{{Auth::user()->first_name}} {{Auth::user()->last_name}}">{{Auth::user()->fullname}}</span>
-                                        <span class="green-text font-italic"><span>@</span>{{Auth::user()->username}}</span>
+                                        <span class="text-submit-color font-italic"><span>@</span>{{Auth::user()->username}}</span>
                                         <a href="/{{Auth::user()->username}}">
                                             <button class="btn btn-cus-submit">
                                                 <i class="fa fa-user fa-fw mr-1"></i>Profile

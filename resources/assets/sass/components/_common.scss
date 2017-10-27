@@ -43,6 +43,101 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #fff !important;
 }
 
+.btn{
+    padding: .85rem 1.13rem;
+    margin-bottom: 0px;
+    &:focus, &:active{
+        outline: 0 !important;
+    }
+    &.btn-cus-submit{
+        background-color: $submit-bg;
+        &:hover, &:focus, &:active{
+            background-color: $submit-bg-hover;
+        }
+    }
+    &.btn-cus-common{
+        background-color: $common-bg;
+        &:hover, &:focus, &:active{
+            background-color: $common-bg-hover;
+        }
+    }
+    &.btn-cus-dismiss{
+        background-color: $dismiss-bg;
+        &:hover, &:focus, &:active{
+            background-color: $dismiss-bg-hover;
+        }
+    }
+}
+
+.submit-bg{
+    background-color: $submit-bg;
+}
+.submit-bg-hover{
+    background-color: $submit-bg-hover;
+}
+.common-bg{
+    background-color: $common-bg;
+}
+.common-bg-hover{
+    background-color: $common-bg-hover;
+}
+.dismiss-bg{
+    background-color: $dismiss-bg;
+}
+.dismiss-bg-hover{
+    background-color: $dismiss-bg-hover;
+}
+
+#toast-container{
+    top: 80px;
+    right: 16px;
+    .toast-info{
+        background-color: $common-bg-hover;
+        &:hover, &:focus, &:active{
+            background-color: $common-bg !important;
+        }
+    }
+    .toast-success{
+        background-color: $submit-bg-hover;
+        &:hover, &:focus, &:active{
+            background-color: $submit-bg !important;
+        }
+    }
+}
+
+.text-common-color{
+    color: $common-bg;
+    &:hover, &:focus, &:active{
+        color: $common-bg-hover;
+    }
+}
+
+.text-submit-color{
+    color: $submit-bg;
+    &:hover, &:focus, &:active{
+        color: $submit-bg-hover;
+    }
+}
+
+.hidden-dom-create-open{
+    z-index: 1050;
+    position: relative;
+    .pannel-post-create-open{
+        margin-top: -10px;
+    }
+}
+
+.hidden-dom-open{
+    position: fixed;
+    opacity: .6;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: $black;
+}
+
 .has-error{
     .form-control{
         border-color: #a94442;
@@ -52,4 +147,16 @@ input:-webkit-autofill:active {
     .help-block{
         color: #a94442;
     }
+}
+
+textarea{
+    resize: none;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+a:focus{
+    outline: none !important;
 }

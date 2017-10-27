@@ -67,7 +67,7 @@
                                         @endif
                                     </div>
                                     <div class="text-center">
-                                        <button class="btn btn-indigo">Sign up</button>
+                                        <button class="btn btn-cus-submit">Sign up</button>
                                     </div>
                                 </form>
                                 <hr class="hr-light mb-3 mt-2">

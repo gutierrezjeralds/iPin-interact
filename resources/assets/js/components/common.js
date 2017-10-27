@@ -31,6 +31,12 @@ if (urlName == 'home') {
 }
 //End scripts for contenteditable paste as a plain text
 
+//Scripts for Tooltips Initialization
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+//End scripts for Tooltips Initialization
+
 //Scripts for animated scroll
 wow = new WOW({
     boxClass: 'wow', // default

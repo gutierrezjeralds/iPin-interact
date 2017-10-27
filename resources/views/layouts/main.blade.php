@@ -33,9 +33,13 @@
 
     <footer>
         <div class="wrapper-footer">
-            @include('contents.header_footer.footer')
+            @if( \Request::is('login') || \Request::is('register') )
+                @include('contents.header_footer.footer')
+            @endif
         </div>
     </footer>
+    
+    <div id="hidden-dom"></div>
 
     <!-- Scripts -->
     @include('contents.includes.global_scripts')

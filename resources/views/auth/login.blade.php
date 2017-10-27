@@ -55,7 +55,7 @@
                                         <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="{{ route('password.request') }}" class="dark-grey-text font-bold ml-1"> Password?</a></p>
                                     </div>
                                     <div class="text-center">
-                                        <button class="btn btn-indigo">Sign in</button>
+                                        <button class="btn btn-cus-submit">Sign in</button>
                                     </div>
                                 </form>
                                 <hr class="hr-light mb-3 mt-2">
