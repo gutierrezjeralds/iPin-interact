@@ -15,7 +15,7 @@
     <link href="{{ asset('css/ipin-compiled.css') }}" rel="stylesheet">
 
 </head>
-<body class="fixed-sn" data-spy="scroll" data-target="#scrollspy" data-offset="15">
+<body class="fixed-sn {{ Request::route()->getName() == 'profile' ? 'white-skin' : '' }}" data-spy="scroll" data-target="#scrollspy" data-offset="15">
 
     <header>
         <div class="wrapper-header">
@@ -38,11 +38,11 @@
             @endif
         </div>
     </footer>
-    
+
     <div id="hidden-dom"></div>
 
     <!-- Scripts -->
-    @include('contents.includes.global_scripts')
+    @include('contents.extras.global_scripts')
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/compiled.min.js') }}"></script>
     <script src="{{ asset('js/ipin-compiled.js') }}"></script>

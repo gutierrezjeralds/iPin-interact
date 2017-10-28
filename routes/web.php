@@ -15,12 +15,17 @@
 //     return view('welcome');
 // });
 
+Auth::routes();
+
 Route::get('/',[
     'uses' => 'HomeController@index',
     'as' => 'home'
 ]);
 
-Auth::routes();
+Route::get('/{username}', [
+    'uses' => 'ProfileController@profile',
+    'as' => 'profile'
+]);
 
 Route::group(['middleware'=>'auth'], function(){
 	

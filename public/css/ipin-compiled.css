@@ -355,8 +355,73 @@ a {
   text-decoration: none !important;
 }
 
+a:hover,
+a:active,
 a:focus {
+  text-decoration: none !important;
+  background-color: none !important;
   outline: none !important;
+}
+
+.wrapper-signin-signup {
+  background: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.wrapper-signin-signup .top-nav-collapse {
+  background-color: #3F51B5 !important;
+}
+
+.wrapper-signin-signup .navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+.wrapper-signin-signup .hm-gradient .full-bg-img {
+  background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.4)), to(rgba(96, 0, 136, 0.4)));
+  background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.4), rgba(96, 0, 136, 0.4) 100%);
+}
+
+.wrapper-signin-signup .card {
+  background-color: rgba(229, 228, 255, 0.2);
+}
+
+.wrapper-signin-signup .md-form .prefix {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.wrapper-signin-signup .md-form label {
+  color: #ffffff;
+}
+
+.wrapper-signin-signup h6 {
+  line-height: 1.7;
+}
+
+header .wrapper-header .side-nav {
+  width: 300px;
+}
+
+header .wrapper-header .side-nav .logo-wrapper a {
+  width: 300px;
+}
+
+header .wrapper-header .side-nav .sidenav-bg {
+  width: 300px;
+}
+
+header .wrapper-header .side-nav .wrapper-create .card-wrapper .face {
+  background-color: transparent !important;
+}
+
+header .wrapper-header .side-nav .wrapper-create .card-wrapper .front {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+header .wrapper-header .side-nav .wrapper-create .card-wrapper .avatar img {
+  border: 5px solid #CCD2D7;
+  background: #CCD2D7;
 }
 
 header .wrapper-header .navbar-bg {
@@ -369,7 +434,7 @@ header .wrapper-header .navbar-bg .nav-item.dropdown {
 
 header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu {
   min-width: 290px;
-  margin-top: -1px;
+  margin-top: 5px;
 }
 
 header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu:before {
@@ -430,38 +495,10 @@ header .wrapper-header .navbar-bg .nav-item .header-avatar-img {
   height: 35px;
 }
 
-.wrapper-signin-signup {
-  background: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.wrapper-signin-signup .top-nav-collapse {
-  background-color: #3F51B5 !important;
-}
-
-.wrapper-signin-signup .navbar:not(.top-nav-collapse) {
-  background: transparent !important;
-}
-
-.wrapper-signin-signup .hm-gradient .full-bg-img {
-  background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.4)), to(rgba(96, 0, 136, 0.4)));
-  background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.4), rgba(96, 0, 136, 0.4) 100%);
-}
-
-.wrapper-signin-signup .card {
-  background-color: rgba(229, 228, 255, 0.2);
-}
-
-.wrapper-signin-signup .md-form .prefix {
-  font-size: 1.5rem;
-  margin-top: 1rem;
-}
-
-.wrapper-signin-signup .md-form label {
-  color: #ffffff;
-}
-
-.wrapper-signin-signup h6 {
-  line-height: 1.7;
+.wrapper-create .card-wrapper .name-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 

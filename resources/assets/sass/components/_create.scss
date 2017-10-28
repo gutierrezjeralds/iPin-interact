@@ -1,0 +1,10 @@
+.wrapper-create{
+	.card-wrapper{
+		.name-text{
+			display: block;
+	        overflow: hidden;
+	        text-overflow: ellipsis;
+	        white-space: nowrap;
+		}
+	}
+}

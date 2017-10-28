@@ -155,8 +155,9 @@ textarea{
 
 a{
     text-decoration: none !important;
-}
-
-a:focus{
-    outline: none !important;
+    &:hover, &:active, &:focus{
+        text-decoration: none !important;
+        background-color: none !important;
+        outline: none !important;
+    }
 }

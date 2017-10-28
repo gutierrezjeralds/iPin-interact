@@ -35,7 +35,14 @@ if (urlName == 'home') {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+$("body").on("click", "[data-toggle='tooltip']", function(event){
+    event.preventDefault();
+    $('[data-toggle="tooltip"]').tooltip('hide');
+});
 //End scripts for Tooltips Initialization
+
+$(".button-collapse").sideNav();
 
 //Scripts for animated scroll
 wow = new WOW({

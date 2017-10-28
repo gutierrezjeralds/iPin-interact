@@ -1,5 +1,32 @@
 header{
     .wrapper-header{
+    	.side-nav{
+    		width: 300px;
+    		.logo-wrapper{
+    			a{
+    				width: 300px;
+    			}
+    		}
+    		.sidenav-bg{
+    			width: 300px;
+    		}
+    		.wrapper-create{
+	    		.card-wrapper{
+	    			.face{
+					    background-color: transparent !important;
+	    			}
+	    			.front{
+	    				box-shadow: none !important;
+	    			}
+	    			.avatar{
+	    				img{
+		    				border: 5px solid #CCD2D7;
+		    				background: #CCD2D7;
+	    				}
+	    			}
+	    		}
+    		}
+    	}
         .navbar-bg{
             background-color: $navbar-bg !important;
             .nav-item{
@@ -7,7 +34,7 @@ header{
 					margin-top: -7px;
 					.dropdown-menu{
 	                    min-width: 290px;
-	                    margin-top: -1px;
+	                    margin-top: 5px;
 	                    &:before {
 	                        position: absolute;
 	                        top: -7px;
