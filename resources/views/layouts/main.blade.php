@@ -15,7 +15,25 @@
     <link href="{{ asset('css/ipin-compiled.css') }}" rel="stylesheet">
 
 </head>
-<body class="fixed-sn {{ Request::route()->getName() == 'profile' ? 'white-skin' : '' }}" data-spy="scroll" data-target="#scrollspy" data-offset="15">
+<body class="fixed-sn scrollbar-night-fade {{ Request::route()->getName() == 'profile' ? 'white-skin' : '' }}" data-spy="scroll" data-target="#scrollspy" data-offset="15">
+
+    <!-- Pre loader -->
+    <!-- <div id="mdb-preloader" class="flex-center white">
+        <div id="preloader-markup">
+            <div class="preloader-wrapper medium active">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- END Pre loader -->
 
     <header>
         <div class="wrapper-header">
@@ -39,13 +57,18 @@
         </div>
     </footer>
 
-    <div id="hidden-dom"></div>
+    <div class="wrapper-modals">
+        @include('contents.extras.modal')
+
+        @yield('modals')
+    </div>
 
     <!-- Scripts -->
     @include('contents.extras.global_scripts')
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/compiled.min.js') }}"></script>
     <script src="{{ asset('js/ipin-compiled.js') }}"></script>
+    @include('contents.extras.alerts')
     
 </body>
 </html>

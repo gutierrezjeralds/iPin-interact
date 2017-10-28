@@ -14,7 +14,7 @@
                     </a>
                 </div>
                 <div class="card-body px-1">
-                    <h4 class="mt-1 black-text name-text" data-toggle="tooltip" data-placement="bottom" title="{{Auth::user()->fullname}}">{{Auth::user()->fullname}}</h4>
+                    <h4 class="mt-1 black-text text-ellipsis" data-toggle="tooltip" data-placement="bottom" title="{{Auth::user()->fullname}}">{{Auth::user()->fullname}}</h4>
                     <h6 class="black-text">
                     	<i class="fa fa-pencil fa-fw"></i> Write a post |
 						<i class="fa fa-upload fa-fw"></i> Upload media
@@ -24,7 +24,7 @@
 	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnWritePost" type="button" data-toggle="tooltip" data-placement="bottom" title="Write a post">
 	                    	<i class="fa fa-pencil-square fa-fw fa-2x py-1 px-1 mt-0 white-text"></i>
 	                	</button>
-	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadPhoto" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload photo">
+	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadPhoto" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload photo" onclick="event.preventDefault(); document.getElementById('ajax-upload-id-photo').click();">
 	                    	<i class="fa fa-camera-retro fa-fw fa-2x py-1 px-1 mt-0 white-text"></i>
 	                	</button>
 	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadPhoto" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload photo">
@@ -39,3 +39,9 @@
         </div>
     </div>
 </div>
+
+@section('modals')
+    <div class="wrapper-modals-create">
+        @include('contents.dashboard.includes.create.photo')
+    </div>
+@endsection

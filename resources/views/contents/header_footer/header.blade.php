@@ -63,7 +63,7 @@
                                         </div>
                                     </a>
                                     <div class="media-body">
-                                        <span class="mt-0 media-heading text-submit-color h5 text-name-header" data-toggle="tooltip" data-placement="bottom" title="{{Auth::user()->fullname}}">{{Auth::user()->fullname}}</span>
+                                        <span class="mt-0 media-heading text-submit-color h5 text-name-header text-ellipsis" data-toggle="tooltip" data-placement="bottom" title="{{Auth::user()->fullname}}">{{Auth::user()->fullname}}</span>
                                         <span class="text-submit-color font-italic"><span>@</span>{{Auth::user()->username}}</span>
                                         <a href="/{{Auth::user()->username}}" class="px-0">
                                             <button class="btn btn-cus-submit">

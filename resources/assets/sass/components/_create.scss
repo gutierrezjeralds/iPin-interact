@@ -1,10 +1,28 @@
 .wrapper-create{
 	.card-wrapper{
-		.name-text{
-			display: block;
-	        overflow: hidden;
-	        text-overflow: ellipsis;
-	        white-space: nowrap;
-		}
+		
+	}
+}
+
+.wrapper-modals-create{
+	.holder-upload-media{
+		.caption-write-here{
+            min-height: 100px;
+        }
+        .list-inline-item-post-style-limit{
+            width: 220px !important;
+            .ajax-file-upload-progress{
+                width: 200px;
+                right: inherit;
+                left: inherit;
+                margin-top: -115px;
+                margin-left: 10px;
+                display: block;
+            }
+            .btn-file-upload-delete{
+                right: inherit;
+                margin-left: -40px;
+            }
+        }
 	}
 }

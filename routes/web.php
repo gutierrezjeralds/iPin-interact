@@ -27,6 +27,19 @@ Route::get('/{username}', [
     'as' => 'profile'
 ]);
 
+Route::get('mediaphoto/{userid}/{filename}', [
+    'uses' => 'GetUploadMediaController@getMediaPhoto',
+    'as' => 'media.photo'
+]);
+
 Route::group(['middleware'=>'auth'], function(){
-	
+    Route::post('/post-media-photo',[
+        'uses' => 'PostController@postMediaPhoto',
+        'as' => 'post.mdeia.photo'
+    ]);
+
+    Route::post('/post-upload-media-photo',[
+        'uses' => 'PostController@postUploadMediaPhoto',
+        'as' => 'post.upload.mdeia.photo'
+    ]);
 });

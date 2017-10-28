@@ -88,19 +88,41 @@ input:-webkit-autofill:active {
     background-color: $dismiss-bg-hover;
 }
 
+button{
+    &.close{
+        cursor: pointer;
+    }
+}
+
+.dropdown-menu{
+    padding: .5rem;
+    z-index: 1;
+    .dropdown-item{
+        &:hover, &:focus, &:active{
+            color: $white;
+            border-radius: 2px;
+            -webkit-transition: all .1s linear;
+            transition: all .1s linear;
+            background-color: $navbar-bg;
+            -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+            box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+        }
+    }
+}
+
 #toast-container{
     top: 80px;
     right: 16px;
     .toast-info{
-        background-color: $common-bg-hover;
+        //background-color: $common-bg-hover;
         &:hover, &:focus, &:active{
-            background-color: $common-bg !important;
+            //background-color: $common-bg !important;
         }
     }
     .toast-success{
-        background-color: $submit-bg-hover;
+        //background-color: $submit-bg-hover;
         &:hover, &:focus, &:active{
-            background-color: $submit-bg !important;
+            //background-color: $submit-bg !important;
         }
     }
 }
@@ -160,4 +182,15 @@ a{
         background-color: none !important;
         outline: none !important;
     }
+}
+
+.text-ellipsis{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.h-2rem{
+    height: 2rem !important;
 }

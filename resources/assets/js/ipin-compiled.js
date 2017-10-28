@@ -23,6 +23,7 @@ const app = new Vue({
 
 require('../../../node_modules/mdbootstrap/js/bootstrap.min');
 require('../../../node_modules/masonry-layout/dist/masonry.pkgd.min');
+require('./components/jquery.uploadfile');
 require('./components/common');
 require('./components/create');
 require('./components/view');

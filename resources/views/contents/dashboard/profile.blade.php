@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
-@section('pageTitle', 'iPin - Profile')
+@section('pageTitle')
+	iPin - {{Auth::user()->fullname}}
+@endsection
 
 @section('content')
 <div class="wrapper-profile">
@@ -8,7 +10,7 @@
 		<div class="row justify-content-md-center pt-5 mt-5">
 			<div class="col-xl-12 col-md-12 col-sm-12 col-lg-12 col-md-auto content-left">
                 <section class="section pb-5">
-				    <div class="row">
+				    <div class="row" id="post-view">
 				        @include('contents.dashboard.includes.view')
 				    </div>
 				</section>

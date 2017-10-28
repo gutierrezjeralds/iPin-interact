@@ -6,6 +6,41 @@ $.ajaxSetup({
 });
 //End script for Ajax token
 
+//Scripts for post ajax loading more
+var postPage = 1;
+$(window).scroll(function() {
+    if( $(window).scrollTop() + $(window).height() >= $(document).height() ) {
+        postPage++;
+        
+        if ( postPage <= postPageCount) {
+            loadMoreData(postPage);
+        } else {
+            $('.ajax-post-load-more').css("display","none");
+            $('.alert-no-more-stories').css("display","block");
+        }
+    }
+});
+
+function loadMoreData(postPage){
+    $.ajax({
+        url: '?page=' + postPage,
+        type: "get",
+        beforeSubmit: function(){
+            $('.ajax-post-load-more').css("display","block");
+        },
+        success: function(data){
+            // require('../../../../node_modules/video.js/dist/video.min');
+            $('.dropdown-toggle').dropdown();
+            $("#post-view").append(data.html);
+        },
+        error: function(xhr,status,error){
+            console.log('Server not responding...');
+        }
+    });
+}
+//End scripts for post ajax loading more
+
+
 //Script for dropdown menu click ones
 $('.dropdown-toggle').dropdown();
 //End script for dropdown menu click ones
@@ -36,13 +71,14 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-$("body").on("click", "[data-toggle='tooltip']", function(event){
-    event.preventDefault();
+$("body").on("click", "[data-toggle='tooltip']", function(){
     $('[data-toggle="tooltip"]').tooltip('hide');
 });
 //End scripts for Tooltips Initialization
 
+//Scripts for navbar left
 $(".button-collapse").sideNav();
+//End scripts for navbar left
 
 //Scripts for animated scroll
 wow = new WOW({
