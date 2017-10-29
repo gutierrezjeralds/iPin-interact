@@ -69,12 +69,21 @@ if (urlName == 'home') {
 //Scripts for Tooltips Initialization
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
-})
+});
 
 $("body").on("click", "[data-toggle='tooltip']", function(){
     $('[data-toggle="tooltip"]').tooltip('hide');
 });
 //End scripts for Tooltips Initialization
+
+//Script for modal confirm
+$("body").on("click", ".btn-modal-confirm-no", function(event){
+    event.preventDefault();
+    $('#modalConfirm').find('#btnModalConfirmYes').removeClass('btn-create-modal-confirm-yes');
+    $('#modalConfirm').find('#btnModalConfirmYes').removeClass('btn-delete-post-modal-confirm-yes');
+    $('#modalConfirm').modal('hide');
+});
+//End script for modal confirm
 
 //Scripts for navbar left
 $(".button-collapse").sideNav();

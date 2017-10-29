@@ -1,0 +1,22 @@
+.view-post-display{
+    .holder-caption{
+        .caption-parent{
+            .caption-child{
+                .edit-caption{
+                    .edit-caption-here{
+                        border: 1px solid $ccc;
+                        min-height: 100px;
+                        -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+                        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+                    }
+                    #editPostSave{
+                        border: 2px solid #00C851 !important;
+                        &:hover, &:active, &:focus{
+                            border: 2px solid #00e25b!important
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

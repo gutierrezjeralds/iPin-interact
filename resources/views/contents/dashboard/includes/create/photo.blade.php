@@ -5,7 +5,7 @@
                 <div class="modal-header">
                     <p class="heading lead"><i class="fa fa-upload fa-fw white-text"></i> Upload media photo</p>
 
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close btn-create-close" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="modal-footer justify-content-center">
-                    {!! Form::button('Close', ['class'=>'btn btn-outline-secondary-modal', 'data-dismiss'=>'modal']) !!}
+                    {!! Form::button('Close', ['class'=>'btn btn-outline-secondary-modal btn-create-close']) !!}
                     {!! Form::button('<i class="fa fa-thumb-tack fa-fw ml-1"></i>Pin it now', ['type'=>'submit', 'class'=>'btn btn-primary-modal btn-pin-post btn-upload-media-photo', 'disabled']) !!}
                 </div>
             {!! Form::close() !!}

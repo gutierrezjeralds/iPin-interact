@@ -42,4 +42,14 @@ Route::group(['middleware'=>'auth'], function(){
         'uses' => 'PostController@postUploadMediaPhoto',
         'as' => 'post.upload.mdeia.photo'
     ]);
+
+    Route::post('/edit-post',[
+        'uses' => 'PostController@postEditPost',
+        'as' => 'post.edit'
+    ]);
+
+    Route::get('/delete-post/{user_id}/{post_id}', [
+        'uses' => 'PostController@getDeletePost',
+        'as' => 'post.delete'
+    ]);
 });

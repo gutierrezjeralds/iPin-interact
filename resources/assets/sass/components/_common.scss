@@ -194,3 +194,15 @@ a{
 .h-2rem{
     height: 2rem !important;
 }
+
+.wrapper-modals{
+    .modal{
+        overflow: auto !important;
+        &#modalConfirm{
+            z-index: 9999;
+            .flex-center{
+                height: auto;
+            }
+        }
+    }
+}

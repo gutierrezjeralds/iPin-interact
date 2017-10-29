@@ -4,12 +4,12 @@
     @endif
 @endif
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar {{ Request::is('login') || Request::is('register') || auth()->user() == null ? '' : 'navbar-bg' }} @yield('navbarClassName')">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar {{ Request::is('login') || Request::is('register') || auth()->user() == null ? '' : 'navbar-bg' }} @yield('navbar-className')">
     <div class="container">
     
         @if(!Auth::guest())
             @if( Request::route()->getName() == 'profile' )
-                <div class="float-left mb-1 mr-3" data-toggle="tooltip" data-placement="bottom" title="Write a post | Upload media">
+                <div class="float-left mb-1 mr-3 @yield('navbar-left-none-className')" data-toggle="tooltip" data-placement="bottom" title="Write a post | Upload media">
                     <a href="#" data-activates="slide-out" class="button-collapse">
                         <span class="navbar-toggler-icon"></span>
                     </a>
@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mr-auto">
                     @if(!Auth::guest())
-                        <li class="nav-item {{ Route::currentRouteName() == 'home' ? 'active' : ''}}">
+                        <li class="nav-item {{ Route::currentRouteName() == 'home' ? 'active' : ''}} @yield('nav-item-active-className')">
                             <a class="nav-link py-1 my-1" href="/" data-toggle="tooltip" data-placement="bottom" title="Home">
                                 <i class="fa fa-home fa-fw font-icon-header header-icon"></i>
                                 <span class="navbar-menu-title">Home</span>
@@ -48,7 +48,7 @@
                                 <span class="navbar-menu-title" style="display: none;">Notifications</span>
                             </a>
                         </li>
-                        <li class="nav-item nav-item-profile-menu dropdown {{ Route::currentRouteName() == 'profile' ? 'active' : ''}}">
+                        <li class="nav-item nav-item-profile-menu dropdown {{ Route::currentRouteName() == 'profile' ? 'active' : ''}} @yield('nav-item-remove-active-className')">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{auth()->user()->avatar}}" class="img-fluid rounded-circle z-depth-0 header-avatar-img" data-toggle="tooltip" data-placement="bottom" title="Profile">
                                 <span class="navbar-menu-title" style="display: none;"> {{Auth::user()->fullname}}</span>

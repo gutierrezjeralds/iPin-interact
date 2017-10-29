@@ -6,7 +6,10 @@
 <link href="{{ asset('css/error.css') }}" rel="stylesheet">
 @endsection
 
-@section('navbarClassName', 'navbar-bg')
+@section('navbar-className', 'navbar-bg')
+@section('navbar-left-none-className', 'd-none')
+@section('nav-item-active-className', 'active py-1')
+@section('nav-item-remove-active-className', 'remove-active pt-1')
 
 @section('content')
     <div class="wrapper-404">

@@ -31,7 +31,7 @@ class HomeController extends Controller
         }
         
         $user = Auth::user();
-        $posts = Post::OrderBy('created_at', 'desc') -> paginate(3);
+        $posts = Post::OrderBy('created_at', 'desc') -> paginate(7);
 
         if ($request->ajax()) {
             $view = view('contents.dashboard.includes.view',compact('posts'))->render();

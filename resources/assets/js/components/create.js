@@ -26,13 +26,15 @@ var uploadPhoto = $("#file-uploader-photo").uploadFile({
             $('.list-upload-file').addClass('list-inline-item-post-style-limit');
             $("html,body").animate({ scrollTop: 0 }, "slow");
         }
-    	$('#uploadMediaPhoto').modal();
+    	$('#uploadMediaPhoto').modal('show');
     },
     onSuccess: function (files, data) {
     	if(files != ""){
+            $('.hidden-config-file-uploader-photo').val("1");
     		$('#photoPreview').find('.list-upload-file').append("<div class='btn-file-upload-delete ajax-file-upload-red float-right'><i class='fa fa-trash fa-1x white-text'></i></div>")
             $('.btn-upload-media-photo').removeAttr("disabled");
             $('.ajax-file-upload-progress').css("display","none");
+            $('#modalConfirm').find('.heading').text('Are you sure you want to discard?');
         }
     },
 });
@@ -47,3 +49,34 @@ $('form').on('submit', function() {
     textareaPost.val(captionPost);
 });
 //End scripts for form submit
+
+//Scripts for close create
+$("body").on("click", ".btn-create-close", function(event){
+    event.preventDefault();
+    $('#modalConfirm').find('#btnModalConfirmYes').addClass('btn-create-modal-confirm-yes');
+    $('#modalConfirm').modal('show');
+});
+
+$("body").on("click", ".btn-create-modal-confirm-yes", function(event){
+    event.preventDefault();
+    var inputFilePhoto = $('#uploadMediaPhoto').find(".hidden-config-file-uploader-photo").val();
+    if ( inputFilePhoto != 0 ) {
+        $('#btnUploadPhoto').attr("onclick", "event.preventDefault(); document.getElementById('ajax-upload-id-photo[]').click();");
+        $(".hidden-config-file-uploader-photo").val("0");
+        $('.list-upload-file').remove();
+
+        commonBtnCreateCloseFunction();
+
+        $('#uploadMediaPhoto').modal('hide');
+    }
+});
+
+function commonBtnCreateCloseFunction(){
+    $('.caption').empty();
+    $('#caption').val('');
+
+    $('.btn-pin-post').attr("disabled", "disabled");
+
+    $('#modalConfirm').modal('hide');
+}
+//End scripts for close create

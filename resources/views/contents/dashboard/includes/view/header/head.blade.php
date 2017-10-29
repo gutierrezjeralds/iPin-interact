@@ -15,7 +15,7 @@
                     <input type="text" name="comment_hide" id="comment-hide" class="comment_hide_field" value="{{$post->comment_hide}}" style="display: none;">
                 @endif
                 <a class="dropdown-item copyButtonURL" href="#"><i class="fa fa-clone font-icon-body"></i> Copy link address</a>
-                <input type="text" id="copyTargetURL-{{$post -> id}}" value="http://ipin.com/{{$post -> username}}/post/{{$post -> id}}" style="display: none;">
+                <input type="text" id="copyTargetURL-20010311{{$post -> id}}" value="http://ipin.com/{{$post -> username}}/post/{{$post -> id}}" style="display: none;">
             </div>
         </div>
     </div>

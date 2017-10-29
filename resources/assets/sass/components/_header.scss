@@ -30,9 +30,15 @@ header{
         .navbar-bg{
             background-color: $navbar-bg !important;
             .nav-item{
+				&.remove-active{
+					.nav-link{
+						background-color: transparent !important;
+					}
+				}
 				&.dropdown{
 					margin-top: -7px;
 					.dropdown-menu{
+						z-index: 10;
 	                    min-width: 290px;
 	                    margin-top: 5px;
 	                    &:before {

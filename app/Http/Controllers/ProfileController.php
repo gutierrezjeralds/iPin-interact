@@ -16,7 +16,7 @@ class ProfileController extends Controller
         $users = User::where('username', $username) -> get();
 
 		foreach ($users as $profile) {
-        	$posts = Post::OrderBy('created_at', 'desc') -> where('user_id', $profile->id) -> paginate(4);
+        	$posts = Post::OrderBy('created_at', 'desc') -> where('user_id', $profile->id) -> paginate(8);
 
 	        if ($request->ajax()) {
 	            $view = view('contents.dashboard.includes.view',compact('posts'))->render();
