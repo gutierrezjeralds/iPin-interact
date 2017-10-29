@@ -95,7 +95,8 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(17);
+__webpack_require__(18);
+module.exports = __webpack_require__(19);
 
 
 /***/ }),
@@ -127,10 +128,10 @@ var app = new Vue({
 
 __webpack_require__(11);
 __webpack_require__(12);
-__webpack_require__(54);
 __webpack_require__(14);
 __webpack_require__(15);
 __webpack_require__(16);
+__webpack_require__(17);
 
 /***/ }),
 /* 3 */
@@ -21667,201 +21668,6 @@ return jQuery;
 /* 14 */
 /***/ (function(module, exports) {
 
-//Script for Ajax token
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-//End script for Ajax token
-
-//Scripts for post ajax loading more
-var postPage = 1;
-$(window).scroll(function () {
-    if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-        postPage++;
-
-        if (postPage <= postPageCount) {
-            loadMoreData(postPage);
-        } else {
-            $('.ajax-post-load-more').css("display", "none");
-            $('.alert-no-more-stories').css("display", "block");
-        }
-    }
-});
-
-function loadMoreData(postPage) {
-    $.ajax({
-        url: '?page=' + postPage,
-        type: "get",
-        beforeSubmit: function beforeSubmit() {
-            $('.ajax-post-load-more').css("display", "block");
-        },
-        success: function success(data) {
-            // require('../../../../node_modules/video.js/dist/video.min');
-            $('.dropdown-toggle').dropdown();
-            $("#post-view").append(data.html);
-        },
-        error: function error(xhr, status, _error) {
-            console.log('Server not responding...');
-        }
-    });
-}
-//End scripts for post ajax loading more
-
-
-//Script for dropdown menu click ones
-$('.dropdown-toggle').dropdown();
-//End script for dropdown menu click ones
-
-//Script for stop propagation of dropdown menu from inside
-//$('.dropdown-menu').on('click', function(e) {e.stopPropagation();});
-//End script for stop propagation of dropdown menu from inside
-
-//Scripts for carousel interval
-// interval is in milliseconds. 1000 = 1 second - so 1000 * 10 = 10 seconds
-$('.carousel').carousel({
-    interval: 1000 * 10
-});
-//End scripts for carousel interval
-
-//Scripts for contenteditable paste as a plain text
-if (urlName == 'home') {}
-// document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
-//     e.preventDefault();
-//     var text = e.clipboardData.getData("text/plain");
-//     document.execCommand("insertHTML", false, text);
-// });
-
-//End scripts for contenteditable paste as a plain text
-
-//Scripts for Tooltips Initialization
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-});
-
-$("body").on("click", "[data-toggle='tooltip']", function () {
-    $('[data-toggle="tooltip"]').tooltip('hide');
-});
-//End scripts for Tooltips Initialization
-
-//Scripts for navbar left
-$(".button-collapse").sideNav();
-//End scripts for navbar left
-
-//Scripts for animated scroll
-wow = new WOW({
-    boxClass: 'wow', // default
-    animateClass: 'animated', // default
-    offset: 0, // default
-    mobile: true, // default
-    live: true // default
-});
-wow.init();
-//End scripts for animated scroll
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-//Scripts for btn create post
-$('.btn-for-post').on('click', function () {});
-
-$('#btnUploadPhoto').on('click', function () {});
-
-//End scripts for btn create post
-
-//Scripts for upload media photo
-var uploadPhoto = $("#file-uploader-photo").uploadFile({
-    url: "/post-upload-media-photo",
-    fileName: "photo",
-    inputFileName: 'photoFile[]',
-    acceptFiles: "image/*",
-    onSelect: function onSelect(files) {
-        for (var i = 0; i < files.length; i++) {
-            var fileExtension = '.' + files[i].name.split('.').pop();
-            files[i].name = "1609141608152015" + new Date().getTime() + Math.random().toString(36).substring(7) + fileExtension;
-        }
-    },
-    onSubmit: function onSubmit(files) {
-        if ($('.list-upload-file').length > 3) {
-            $('.list-upload-file').addClass('list-inline-item-post-style-limit');
-            $("html,body").animate({ scrollTop: 0 }, "slow");
-        }
-        $('#uploadMediaPhoto').modal();
-    },
-    onSuccess: function onSuccess(files, data) {
-        if (files != "") {
-            $('#photoPreview').find('.list-upload-file').append("<div class='btn-file-upload-delete ajax-file-upload-red float-right'><i class='fa fa-trash fa-1x white-text'></i></div>");
-            $('.btn-upload-media-photo').removeAttr("disabled");
-            $('.ajax-file-upload-progress').css("display", "none");
-        }
-    }
-});
-//End scripts for upload media photo
-
-//Scripts for form submit
-$('form').on('submit', function () {
-    $('.btn-pin-post').attr("disabled", "disabled");
-
-    var textareaPost = $(this).find('textarea');
-    var captionPost = $(this).find('.caption').html();
-    textareaPost.val(captionPost);
-});
-//End scripts for form submit
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */
-/***/ (function(module, exports) {
-
 /*!
  * jQuery Upload File Plugin
  * version: 4.0.11
@@ -22709,6 +22515,171 @@ $('form').on('submit', function () {
         return this;
     };
 })(jQuery);
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+//Script for Ajax token
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+//End script for Ajax token
+
+//Scripts for post ajax loading more
+var postPage = 1;
+$(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        postPage++;
+
+        if (postPage <= postPageCount) {
+            loadMoreData(postPage);
+        } else {
+            $('.ajax-post-load-more').css("display", "none");
+            $('.alert-no-more-stories').css("display", "block");
+        }
+    }
+});
+
+function loadMoreData(postPage) {
+    $.ajax({
+        url: '?page=' + postPage,
+        type: "get",
+        beforeSubmit: function beforeSubmit() {
+            $('.ajax-post-load-more').css("display", "block");
+        },
+        success: function success(data) {
+            // require('../../../../node_modules/video.js/dist/video.min');
+            $('.dropdown-toggle').dropdown();
+            $("#post-view").append(data.html);
+        },
+        error: function error(xhr, status, _error) {
+            console.log('Server not responding...');
+        }
+    });
+}
+//End scripts for post ajax loading more
+
+
+//Script for dropdown menu click ones
+$('.dropdown-toggle').dropdown();
+//End script for dropdown menu click ones
+
+//Script for stop propagation of dropdown menu from inside
+//$('.dropdown-menu').on('click', function(e) {e.stopPropagation();});
+//End script for stop propagation of dropdown menu from inside
+
+//Scripts for carousel interval
+// interval is in milliseconds. 1000 = 1 second - so 1000 * 10 = 10 seconds
+$('.carousel').carousel({
+    interval: 1000 * 10
+});
+//End scripts for carousel interval
+
+//Scripts for contenteditable paste as a plain text
+if (urlName == 'home') {}
+// document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
+//     e.preventDefault();
+//     var text = e.clipboardData.getData("text/plain");
+//     document.execCommand("insertHTML", false, text);
+// });
+
+//End scripts for contenteditable paste as a plain text
+
+//Scripts for Tooltips Initialization
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+$("body").on("click", "[data-toggle='tooltip']", function () {
+    $('[data-toggle="tooltip"]').tooltip('hide');
+});
+//End scripts for Tooltips Initialization
+
+//Scripts for navbar left
+$(".button-collapse").sideNav();
+//End scripts for navbar left
+
+//Scripts for animated scroll
+wow = new WOW({
+    boxClass: 'wow', // default
+    animateClass: 'animated', // default
+    offset: 0, // default
+    mobile: true, // default
+    live: true // default
+});
+wow.init();
+//End scripts for animated scroll
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+//Scripts for btn create post
+$('.btn-for-post').on('click', function () {});
+
+$('#btnUploadPhoto').on('click', function () {});
+
+//End scripts for btn create post
+
+//Scripts for upload media photo
+var uploadPhoto = $("#file-uploader-photo").uploadFile({
+    url: "/post-upload-media-photo",
+    fileName: "photo",
+    inputFileName: 'photoFile[]',
+    acceptFiles: "image/*",
+    onSelect: function onSelect(files) {
+        for (var i = 0; i < files.length; i++) {
+            var fileExtension = '.' + files[i].name.split('.').pop();
+            files[i].name = "1609141608152015" + new Date().getTime() + Math.random().toString(36).substring(7) + fileExtension;
+        }
+    },
+    onSubmit: function onSubmit(files) {
+        if ($('.list-upload-file').length > 3) {
+            $('.list-upload-file').addClass('list-inline-item-post-style-limit');
+            $("html,body").animate({ scrollTop: 0 }, "slow");
+        }
+        $('#uploadMediaPhoto').modal();
+    },
+    onSuccess: function onSuccess(files, data) {
+        if (files != "") {
+            $('#photoPreview').find('.list-upload-file').append("<div class='btn-file-upload-delete ajax-file-upload-red float-right'><i class='fa fa-trash fa-1x white-text'></i></div>");
+            $('.btn-upload-media-photo').removeAttr("disabled");
+            $('.ajax-file-upload-progress').css("display", "none");
+        }
+    }
+});
+//End scripts for upload media photo
+
+//Scripts for form submit
+$('form').on('submit', function () {
+    $('.btn-pin-post').attr("disabled", "disabled");
+
+    var textareaPost = $(this).find('textarea');
+    var captionPost = $(this).find('.caption').html();
+    textareaPost.val(captionPost);
+});
+//End scripts for form submit
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -4,7 +4,7 @@
     @endif
 @endif
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar {{ \Request::is('login') || \Request::is('register') || auth()->user() == null ? '' : 'navbar-bg' }}">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar {{ Request::is('login') || Request::is('register') || auth()->user() == null ? '' : 'navbar-bg' }} @yield('navbarClassName')">
     <div class="container">
     
         @if(!Auth::guest())
@@ -17,38 +17,38 @@
             @endif
         @endif
 
-        <a class="navbar-brand" href="/"><strong>{{ config('app.name') }}</strong></a>
+        <a class="navbar-brand py-1 my-1" href="/"><strong>{{ config('app.name') }}</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mr-auto">
                     @if(!Auth::guest())
-                        <li class="nav-item {{ Request::route()->getName() == 'home' ? 'active' : ''}}">
-                            <a class="nav-link" href="/" data-toggle="tooltip" data-placement="bottom" title="Home">
+                        <li class="nav-item {{ Route::currentRouteName() == 'home' ? 'active' : ''}}">
+                            <a class="nav-link py-1 my-1" href="/" data-toggle="tooltip" data-placement="bottom" title="Home">
                                 <i class="fa fa-home fa-fw font-icon-header header-icon"></i>
                                 <span class="navbar-menu-title">Home</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::route()->getName() == 'friend.requests' ? 'active' : ''}}">
-                            <a class="nav-link" href="/" data-toggle="tooltip" data-placement="bottom" title="Friends Request">
+                        <li class="nav-item {{ Route::currentRouteName() == 'friend.requests' ? 'active' : ''}}">
+                            <a class="nav-link py-2 my-1" href="/" data-toggle="tooltip" data-placement="bottom" title="Friends Request">
                                 <i class="fa fa-user-plus fa-fw font-icon-header header-icon"></i>
                                 <span class="navbar-menu-title" style="display: none;">Friend Requests</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::route()->getName() == 'messages' ? 'active' : ''}}">
-                            <a class="nav-link" href="/" data-toggle="tooltip" data-placement="bottom" title="Messages">
+                        <li class="nav-item {{ Route::currentRouteName() == 'messages' ? 'active' : ''}}">
+                            <a class="nav-link py-2 my-1" href="/" data-toggle="tooltip" data-placement="bottom" title="Messages">
                                 <i class="fa fa-envelope fa-fw font-icon-header header-icon"></i>
                                 <span class="navbar-menu-title" style="display: none;">Messages</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::route()->getName() == 'notification' ? 'active' : ''}}">
-                            <a class="nav-link" href="/" data-toggle="tooltip" data-placement="bottom" title="Notifications">
+                        <li class="nav-item {{ Route::currentRouteName() == 'notification' ? 'active' : ''}}">
+                            <a class="nav-link py-2 my-1" href="/" data-toggle="tooltip" data-placement="bottom" title="Notifications">
                                 <i class="fa fa-bell fa-fw font-icon-header header-icon"></i>
                                 <span class="navbar-menu-title" style="display: none;">Notifications</span>
                             </a>
                         </li>
-                        <li class="nav-item nav-item-profile-menu dropdown {{ Request::route()->getName() == 'profile' ? 'active' : ''}}">
+                        <li class="nav-item nav-item-profile-menu dropdown {{ Route::currentRouteName() == 'profile' ? 'active' : ''}}">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{auth()->user()->avatar}}" class="img-fluid rounded-circle z-depth-0 header-avatar-img" data-toggle="tooltip" data-placement="bottom" title="Profile">
                                 <span class="navbar-menu-title" style="display: none;"> {{Auth::user()->fullname}}</span>

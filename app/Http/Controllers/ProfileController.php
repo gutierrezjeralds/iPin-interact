@@ -26,7 +26,7 @@ class ProfileController extends Controller
 	        Javascript::put(['user_id' => $profile->id, 'user_fullname' => $profile->fullname, 'username' => $profile->username, 'postPageCount' => $posts->lastPage()]);
 
 	        return view('contents.dashboard.profile', compact('posts'));
-
 		}
+		return view('errors.404');
     }
 }

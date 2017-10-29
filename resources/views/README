@@ -1,0 +1,2 @@
+//Function logout redirect to login page - vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php
+//diffForHumans - second and third parameters make it true - vendor/nesbot/carbon/src/Carbon/Carbon.php

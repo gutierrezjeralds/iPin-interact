@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" class="{{ \Request::is('login') || \Request::is('register') || auth()->user() == null ? 'full-height' : '' }}">
+<html lang="{{ app()->getLocale() }}" class="{{ Request::is('login') || Request::is('register') || auth()->user() == null ? 'full-height' : '' }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +13,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/compiled.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/ipin-compiled.css') }}" rel="stylesheet">
+    @yield('styles')
 
 </head>
-<body class="fixed-sn scrollbar-night-fade {{ Request::route()->getName() == 'profile' ? 'white-skin' : '' }}" data-spy="scroll" data-target="#scrollspy" data-offset="15">
+<body class="fixed-sn scrollbar-night-fade {{ Route::currentRouteName() == 'profile' ? 'white-skin' : '' }}" data-spy="scroll" data-target="#scrollspy" data-offset="15">
 
     <!-- Pre loader -->
     <!-- <div id="mdb-preloader" class="flex-center white">
@@ -51,7 +52,7 @@
 
     <footer>
         <div class="wrapper-footer">
-            @if( \Request::is('login') || \Request::is('register') )
+            @if( Request::is('login') || Request::is('register') )
                 @include('contents.header_footer.footer')
             @endif
         </div>

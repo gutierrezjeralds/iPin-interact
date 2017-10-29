@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('pageTitle')
-	iPin - {{Auth::user()->fullname}}
+	iPin - {{\Auth::user()->fullname}}
 @endsection
 
 @section('content')

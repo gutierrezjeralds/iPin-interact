@@ -1,0 +1,39 @@
+html,
+body {
+  font-weight: 100;
+  margin: 0;
+}
+
+.full-height {
+  height: 100vh !important;
+}
+
+.full-height body {
+  height: 0px;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  padding: 20px;
+}
+

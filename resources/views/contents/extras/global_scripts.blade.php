@@ -1,3 +1,3 @@
 <script>
-	var urlName = '{{ Request::route()->getName() }}';
+	var urlName = '{{ Route::currentRouteName() }}';
 </script>
