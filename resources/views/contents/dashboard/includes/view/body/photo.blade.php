@@ -1,5 +1,5 @@
 <div class="holder-media-photo">
-    <div id="media-photo-20010311{{$post->id}}" class="carousel slide carousel-fade pb-2" data-ride="carousel">
+    <div id="media-photo-20010311{{$post->id}}" class="carousel slide carousel-fade pb-2 inner-view-display" data-ride="carousel">
         @foreach($post->photo as $mediaPhoto)
             @if($loop->count > 1)
                 @if($loop->first)

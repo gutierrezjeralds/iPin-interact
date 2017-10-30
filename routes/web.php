@@ -32,6 +32,11 @@ Route::get('mediaphoto/{userid}/{filename}', [
     'as' => 'media.photo'
 ]);
 
+Route::get('/inner-view-display/{post_id}', [
+    'uses' => 'PostController@getVIewPost',
+    'as' => 'post.inner.view.display'
+]);
+
 Route::group(['middleware'=>'auth'], function(){
     Route::post('/post-media-photo',[
         'uses' => 'PostController@postMediaPhoto',

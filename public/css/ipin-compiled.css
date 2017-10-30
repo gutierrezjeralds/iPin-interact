@@ -1217,3 +1217,35 @@ header .wrapper-header .navbar-bg .nav-item .header-avatar-img {
   border: 2px solid #00e25b !important;
 }
 
+/* Isotope Transitions
+------------------------------- */
+
+.isotope,
+.isotope .item-view {
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+  transition-property: height, width;
+}
+
+.isotope .item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+}
+
+/* responsive media queries */
+
+@media (max-width: 768px) {
+  .isotope .item-view {
+    position: static !important;
+    -webkit-transform: translate(0px, 0px) !important;
+    transform: translate(0px, 0px) !important;
+  }
+}
+

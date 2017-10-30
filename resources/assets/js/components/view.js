@@ -1,3 +1,18 @@
+
+//Scripts for item view layout
+function itemViewLayout() {
+    $.getScript('//cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js',function(){
+        $('#post-view').imagesLoaded( function(){
+            $('#post-view').isotope({
+                itemSelector : '.item-view'
+            });
+        });
+    });
+}
+
+//itemViewLayout();
+//End scripts for item view layout
+
 //Scripts for inline variable
 var postId = 0;
 var postCaptionElement = null;
@@ -150,3 +165,21 @@ $(document).ajaxSuccess(function() {
     postCarouselItem();
 });
 //End script for all each function for ajax after success
+
+//Scripts for inner view display
+$("body").on("click", ".inner-view-display", function(event) {
+    event.preventDefault();
+    postId = $(event.target).closest('.view-post-display').attr("tack").substring(8);
+
+     $.ajax({
+        url:  '/inner-view-display/' + postId,
+        method: 'GET',
+        success : function(data){
+            // alert(data);
+            // $('#modalViewDisplay').find('.modal-body').html(data);
+            $('#modalViewDisplay').modal('show');
+            //console.log(data);
+        }
+    });
+});
+//End scripts for inner view display

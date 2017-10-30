@@ -95,4 +95,9 @@ class PostController extends Controller
             $move = File::move($old_photo_path, $new_photo_path);
         }
     }
+
+    public function getVIewPost($post_id){
+        $posts = Post::where('id', $post_id)->get();
+        return view('contents.extras.modals.view', compact('posts'))->render();
+    }
 }

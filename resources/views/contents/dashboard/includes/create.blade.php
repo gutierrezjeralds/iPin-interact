@@ -1,4 +1,4 @@
-<div class="wrapper-create {{ Request::route()->getName() == 'profile' ? '' : 'col-lg-3 col-md-6 mb-r' }}">
+<div class="wrapper-create item-view {{ Request::route()->getName() == 'profile' ? '' : 'col-lg-3 col-md-6 mb-r' }}">
     <div class="card-wrapper">
         <div class="card-rotating effect__click">
             <div class="face front">

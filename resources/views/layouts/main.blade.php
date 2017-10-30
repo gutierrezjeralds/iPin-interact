@@ -52,14 +52,15 @@
 
     <footer>
         <div class="wrapper-footer">
-            @if( Request::is('login') || Request::is('register') )
+            @if( Request::is('login') || Request::is('register') || auth()->user() == null )
                 @include('contents.header_footer.footer')
             @endif
         </div>
     </footer>
 
     <div class="wrapper-modals">
-        @include('contents.extras.modal')
+        @include('contents.extras.modals.confirm')
+        @include('contents.extras.modals.view')
 
         @yield('modals')
     </div>

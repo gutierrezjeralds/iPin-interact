@@ -1,6 +1,6 @@
 @if($posts)
     @foreach($posts as $post)
-        <div class="col-lg-3 col-md-6 mb-r view-post-display" tack="20010311{{$post -> id}}">
+        <div class="item-view col-lg-3 col-md-6 mb-r view-post-display" tack="20010311{{$post -> id}}">
             <div class="card news-card">
                 <div class="card-body holder-header-post">
                     @include('contents.dashboard.includes.view.header.head')
