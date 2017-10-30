@@ -1,4 +1,13 @@
 .view-post-display{
+    .holder-media-photo{
+        .num-carousel-items{
+            position: absolute;
+            z-index: 10;
+            right: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
     .holder-caption{
         .caption-parent{
             .caption-child{

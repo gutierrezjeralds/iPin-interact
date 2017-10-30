@@ -127,3 +127,26 @@ $("body").on("click", ".copyButtonURL", function(event) {
     }
 });
 //End scripts for copy post URL
+
+//Scripts for corousel item number display
+function postCarouselItem() {
+    jQuery(".holder-media-photo").each(function() {
+        var totalCarouselItems = jQuery(this).find(".carousel").find('.carousel-item').length;
+        var currentCarouselIndex = jQuery(this).find(".carousel").find('div.active').index() + 1;
+        jQuery(this).find('.num-carousel-items').html(''+currentCarouselIndex+'/'+totalCarouselItems+'');
+
+        jQuery(this).find(".carousel").on('slid.bs.carousel', function() {
+            currentCarouselIndex = jQuery(this).find('div.active').index() + 1;
+            jQuery(this).find('.num-carousel-items').html(''+currentCarouselIndex+'/'+totalCarouselItems+'');
+        });
+    });
+}
+//End scripts for corousel item number display
+
+//Script for all each function for ajax after success
+postCarouselItem();
+
+$(document).ajaxSuccess(function() {
+    postCarouselItem();
+});
+//End script for all each function for ajax after success

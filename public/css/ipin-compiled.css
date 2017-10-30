@@ -1192,6 +1192,14 @@ header .wrapper-header .navbar-bg .nav-item .header-avatar-img {
   margin-left: -40px;
 }
 
+.view-post-display .holder-media-photo .num-carousel-items {
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .view-post-display .holder-caption .caption-parent .caption-child .edit-caption .edit-caption-here {
   border: 1px solid #ccc;
   min-height: 100px;
