@@ -59,10 +59,11 @@
     </footer>
 
     <div class="wrapper-modals">
-        @include('contents.extras.modals.confirm')
-        @include('contents.extras.modals.view')
+        @include('contents.extras.modals')
 
-        @yield('modals')
+
+        @yield('modal-create')
+        @yield('modal-view')
     </div>
 
     <!-- Scripts -->

@@ -1,3 +1,19 @@
+//Scripts for item view layout
+function itemViewLayout() {
+    $.getScript('//cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js',function(){
+        $('#post-view').imagesLoaded( function(){
+            $('#post-view').isotope({
+                itemSelector : '.item-view'
+            });
+        });
+    });
+}
+
+jQuery(document).ready(function($){
+    //itemViewLayout();
+});
+//End scripts for item view layout
+
 //Script for Ajax token
 $.ajaxSetup({
     headers: {
@@ -75,6 +91,16 @@ $("body").on("click", "[data-toggle='tooltip']", function(){
     $('[data-toggle="tooltip"]').tooltip('hide');
 });
 //End scripts for Tooltips Initialization
+
+//Script for stop scrolling body
+$('.modal').on('shown.bs.modal', function () {
+    $('body').addClass('body-dont-scroll');
+});
+
+$('.modal').on('hidden.bs.modal', function () {
+    $('body').removeClass('body-dont-scroll');
+});
+//End script for stop scrolling body
 
 //Script for modal confirm
 $("body").on("click", ".btn-modal-confirm-no", function(event){

@@ -30,3 +30,9 @@
         </div>
     @endforeach
 @endif
+
+@section('modal-view')
+    <div class="wrapper-modals-view">
+        @include('contents.dashboard.includes.view.modal.view')
+    </div>
+@endsection

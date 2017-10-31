@@ -2,6 +2,10 @@ body{
     background-color: $body-bg;
 }
 
+.body-dont-scroll{
+    overflow: hidden !important;
+}
+
 .standardpage {
     width:100%;
     margin: 0 auto;

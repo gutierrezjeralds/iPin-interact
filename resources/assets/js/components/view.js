@@ -1,18 +1,3 @@
-
-//Scripts for item view layout
-function itemViewLayout() {
-    $.getScript('//cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js',function(){
-        $('#post-view').imagesLoaded( function(){
-            $('#post-view').isotope({
-                itemSelector : '.item-view'
-            });
-        });
-    });
-}
-
-//itemViewLayout();
-//End scripts for item view layout
-
 //Scripts for inline variable
 var postId = 0;
 var postCaptionElement = null;
@@ -175,8 +160,8 @@ $("body").on("click", ".inner-view-display", function(event) {
         url:  '/inner-view-display/' + postId,
         method: 'GET',
         success : function(data){
-            // alert(data);
-            // $('#modalViewDisplay').find('.modal-body').html(data);
+            //alert(data);
+            $('#modalViewDisplay').find('.modal-body').html(data);
             $('#modalViewDisplay').modal('show');
             //console.log(data);
         }

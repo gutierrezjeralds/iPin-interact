@@ -28,18 +28,19 @@ class HomeController extends Controller
     public function index(Request $request){
         if (Auth::guest()) {
             return view('auth.register');
-        }
-        
-        $user = Auth::user();
-        $posts = Post::OrderBy('created_at', 'desc') -> paginate(7);
+        } else {
 
-        if ($request->ajax()) {
-            $view = view('contents.dashboard.includes.view',compact('posts'))->render();
-            return response()->json(['html'=>$view]);
-        }
+            $user = Auth::user();
+            $posts = Post::OrderBy('created_at', 'desc') -> paginate(7);
 
-        Javascript::put(['user_id' => $user->id, 'user_fullname' => $user->fullname, 'username' => $user->username, 'postPageCount' => $posts->lastPage()]);
-        
-        return view('contents.dashboard.home', compact('posts'));
+            if ($request->ajax()) {
+                $view = view('contents.dashboard.includes.view',compact('posts'))->render();
+                return response()->json(['html'=>$view]);
+            }
+
+            Javascript::put(['user_id' => $user->id, 'user_fullname' => $user->fullname, 'username' => $user->username, 'postPageCount' => $posts->lastPage()]);
+
+            return view('contents.dashboard.home', compact('posts'));
+        }
     }
 }

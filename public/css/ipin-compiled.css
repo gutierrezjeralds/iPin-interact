@@ -168,6 +168,10 @@ body {
   background-color: #ecf0f1;
 }
 
+.body-dont-scroll {
+  overflow: hidden !important;
+}
+
 .standardpage {
   width: 100%;
   margin: 0 auto;

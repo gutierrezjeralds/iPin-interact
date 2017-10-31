@@ -97,7 +97,7 @@ class PostController extends Controller
     }
 
     public function getVIewPost($post_id){
-        $posts = Post::where('id', $post_id)->get();
-        return view('contents.extras.modals.view', compact('posts'))->render();
+        $post_views = Post::where('id', $post_id)->first();
+        return view('contents.dashboard.includes.view.modal.view', compact('post_views'))->render();
     }
 }

@@ -40,7 +40,7 @@
     </div>
 </div>
 
-@section('modals')
+@section('modal-create')
     <div class="wrapper-modals-create">
         @include('contents.dashboard.includes.create.photo')
     </div>
