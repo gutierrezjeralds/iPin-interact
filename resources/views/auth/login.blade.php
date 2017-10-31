@@ -2,6 +2,8 @@
 
 @section('pageTitle', 'iPin - Signin/Signup')
 
+@section('html-className', 'full-height')
+
 @section('signin_signup')
 <section class="wrapper-signin-signup view hm-gradient">
     <div class="full-bg-img">

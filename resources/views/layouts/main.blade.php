@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" class="{{ Request::is('login') || Request::is('register') || auth()->user() == null ? 'full-height' : '' }}">
+<html lang="{{ app()->getLocale() }}" class="@yield('html-className')">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -2,6 +2,12 @@
 
 @section('pageTitle', 'iPin - Home')
 
+@section('navbar-className', 'navbar-bg')
+
+@if(Auth::guest())
+	@section('html-className', 'full-height')
+@endif
+
 @section('content')
 <div class="wrapper-home">
 	<div class="container">

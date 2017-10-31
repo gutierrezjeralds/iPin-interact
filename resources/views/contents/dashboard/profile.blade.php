@@ -1,8 +1,10 @@
 @extends('layouts.main')
 
 @section('pageTitle')
-	iPin - {{\Auth::user()->fullname}}
+	iPin - {{$profile->username}}
 @endsection
+
+@section('navbar-className', 'navbar-bg')
 
 @section('content')
 <div class="wrapper-profile">

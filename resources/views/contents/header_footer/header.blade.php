@@ -4,7 +4,7 @@
     @endif
 @endif
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar {{ Request::is('login') || Request::is('register') || auth()->user() == null ? '' : 'navbar-bg' }} @yield('navbar-className')">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar @yield('navbar-className')">
     <div class="container">
     
         @if(!Auth::guest())
