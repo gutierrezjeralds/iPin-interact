@@ -1,10 +1,8 @@
 //Scripts for item view layout
 function itemViewLayout() {
-    $.getScript('//cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js',function(){
-        $('#post-view').imagesLoaded( function(){
-            $('#post-view').isotope({
-                itemSelector : '.item-view'
-            });
+    $('#post-view').imagesLoaded( function(){
+        $('#post-view').isotope({
+            itemSelector : '.item-view'
         });
     });
 }
