@@ -5,6 +5,7 @@
 @endsection
 
 @section('navbar-className', 'navbar-bg')
+@section('footer-className', 'd-none')
 
 @section('content')
 <div class="wrapper-profile">

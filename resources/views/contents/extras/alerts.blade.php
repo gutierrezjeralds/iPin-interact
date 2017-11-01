@@ -14,4 +14,12 @@
 		});
 	@endif
 
+
+    @if (Session::has('status'))
+        var status = "{{session('status')}}";
+        $(document).ready(function(){
+            toastr["success"](status);
+        });
+    @endif
+
 </script>

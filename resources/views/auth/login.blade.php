@@ -43,21 +43,22 @@
                                         <input type="password" name="password" class="form-control" required>
                                         <label for="form4">Password</label>
                                         <div class="checkbox font-small grey-text d-flex justify-content-end">
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="md-form">
-                                        <div class="form-group">
-                                            <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            <label for="remember">Remember Me</label>
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
-                                        <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="{{ route('password.request') }}" class="dark-grey-text font-bold ml-1"> Password?</a></p>
-                                    </div>
-                                    <div class="text-center">
-                                        <button class="btn btn-cus-submit">Sign in</button>
+                                        <div class="md-form">
+                                            <div class="form-group">
+                                                <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                <label for="remember">Remember Me</label>
+                                            </div>
+                                            <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="{{ route('password.request') }}" class="dark-grey-text font-bold ml-1"> Password?</a></p>
+                                        </div>
+                                        <div class="text-center">
+                                            <button class="btn btn-cus-submit">Sign in</button>
+                                        </div>
                                     </div>
                                 </form>
                                 <hr class="hr-light mb-3 mt-2">

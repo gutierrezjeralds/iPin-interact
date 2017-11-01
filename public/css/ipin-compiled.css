@@ -205,13 +205,13 @@ div[contenteditable]:focus {
   outline: 0;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+.wrapper-content input:-webkit-autofill,
+.wrapper-content input:-webkit-autofill:hover,
+.wrapper-content input:-webkit-autofill:focus,
+.wrapper-content input:-webkit-autofill:active {
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #fff !important;
+  -webkit-text-fill-color: #000 !important;
 }
 
 .btn {
@@ -1040,6 +1040,15 @@ a:focus {
 .wrapper-signin-signup {
   background: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg") no-repeat center center;
   background-size: cover;
+}
+
+.wrapper-signin-signup input:-webkit-autofill,
+.wrapper-signin-signup input:-webkit-autofill:hover,
+.wrapper-signin-signup input:-webkit-autofill:focus,
+.wrapper-signin-signup input:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
 }
 
 .wrapper-signin-signup .top-nav-collapse {

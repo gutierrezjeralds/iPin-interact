@@ -51,10 +51,8 @@
     </content>
 
     <footer>
-        <div class="wrapper-footer">
-            @if( Request::is('login') || Request::is('register') || auth()->user() == null )
-                @include('contents.header_footer.footer')
-            @endif
+        <div class="wrapper-footer @yield('footer-className')">
+            @include('contents.header_footer.footer')
         </div>
     </footer>
 

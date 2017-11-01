@@ -8,6 +8,8 @@
 	@section('html-className', 'full-height')
 @endif
 
+@section('footer-className', 'd-none')
+
 @section('content')
 <div class="wrapper-home">
 	<div class="container">

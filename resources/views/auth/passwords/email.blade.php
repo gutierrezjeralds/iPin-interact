@@ -1,42 +1,33 @@
 @extends('layouts.main')
 
+@section('navbar-className', 'navbar-bg')
+@section('footer-className', 'd-none')
+
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
+    <div class="row justify-content-md-center pt-5 mt-5">
+        <div class="col-md-6 col-xl-5 offset-xl-1">
+            <div class="card wow fadeInUp" data-wow-delay="0.3s">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3 class="black-text"><i class="fa fa-window-restore black-text"></i> Reset Password</h3>
+                        <hr class="hr-dark">
+                    </div>
                     <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="md-form{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <i class="fa fa-envelope prefix black-text"></i>
+                            <input type="text" name="email" class="form-control black-text" value="{{ old('email') }}" required>
+                            <label for="form2">Email Address</label>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Send Password Reset Link</button>
                         </div>
                     </form>
                 </div>
