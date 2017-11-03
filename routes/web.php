@@ -46,6 +46,11 @@ Route::get('/inner-view-display/{post_id}', [
     'as' => 'post.inner.view.display'
 ]);
 
+Route::get('/post/auth/secure', [
+    'uses' => 'AuthSessionController@postSecure',
+    'as' => 'post.auth.secure.session'
+]);
+
 Route::group(['middleware'=>'auth'], function(){
     Route::post('/post-media-photo',[
         'uses' => 'PostController@postMediaPhoto',

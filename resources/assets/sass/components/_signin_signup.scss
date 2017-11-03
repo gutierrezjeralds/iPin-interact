@@ -2,14 +2,6 @@
     background: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")no-repeat center center;
     background-size: cover;
 
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-        transition: background-color 5000s ease-in-out 0s;
-        -webkit-text-fill-color: #fff !important;
-    }
-
     .top-nav-collapse {
         background-color: $navbar-bg !important; 
     }

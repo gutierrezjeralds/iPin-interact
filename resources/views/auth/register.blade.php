@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('pageTitle', 'iPin - Signin/Signup')
+@section('pageTitle', 'iPin - Sign in or Sig nup')
 
 @section('html-className', 'full-height')
 

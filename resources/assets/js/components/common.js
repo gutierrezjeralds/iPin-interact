@@ -12,6 +12,31 @@ jQuery(document).ready(function($){
 });
 //End scripts for item view layout
 
+//Script for user cliked back button when logout
+CheckTheUserLogout();
+function CheckTheUserLogout() {
+    $.ajax({
+        url: "/post/auth/secure",
+        type: "GET",
+        data: {},
+        success: function (response) {
+            if (response==0) {
+                if (urlName == 'home' || urlName == 'profile') {
+                    $('body').css("display", "none");
+                    location.href="/login";
+                }
+            }
+            else {
+                //Do Nothing
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        }
+    });
+}
+//End script for user cliked back button when logout
+
 //Script for Ajax token
 $.ajaxSetup({
     headers: {

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('pageTitle', 'iPin - Reset Password')
+
 @section('navbar-className', 'navbar-bg')
 @section('footer-className', 'd-none')
 
