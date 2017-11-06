@@ -1152,7 +1152,7 @@ header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu .media .medi
 }
 
 header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu .media .media-body .btn {
-  padding: .85rem 2.13rem;
+  padding: .85rem 1.90rem;
 }
 
 header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu .media .avatar-header-dropdown-img {
@@ -1168,6 +1168,12 @@ header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu .media-botto
 
 header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu a {
   padding: 0px;
+}
+
+header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu a:hover,
+header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu a:focus,
+header .wrapper-header .navbar-bg .nav-item.dropdown .dropdown-menu a:active {
+  background-color: transparent !important;
 }
 
 header .wrapper-header .navbar-bg .nav-item .header-avatar-img {

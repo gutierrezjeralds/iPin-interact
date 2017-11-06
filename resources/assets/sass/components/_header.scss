@@ -73,7 +73,7 @@ header{
 	                                white-space: nowrap;
 	                            }
 	                            .btn{
-	                                padding: .85rem 2.13rem;
+	                                padding: .85rem 1.90rem;
 	                            }
 	                        }
 	                        .avatar-header-dropdown-img{
@@ -91,6 +91,9 @@ header{
 	                    }
 	                    a{
 	                    	padding: 0px;
+	                    	&:hover, &:focus, &:active{
+					            background-color: transparent !important;
+					        }
 	                    }
 	                }
 				}
