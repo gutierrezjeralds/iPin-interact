@@ -12970,16 +12970,20 @@ $("body").on("click", ".btn-create-modal-confirm-yes", function (event) {
         commonBtnCreateCloseFunction();
 
         $('#uploadMediaPhoto').modal('hide');
+
+        return false;
     }
 
     var inputFileVideoFile = $('#uploadMediaVideoLink').find(".hidden-config-file-uploader-video-file").val();
-    if (inputFileVideoLink != 0) {
+    if (inputFileVideoFile != 0) {
         $(".hidden-config-file-uploader-video-file").val("0");
 
         commonBtnCreateCloseFunction();
 
         $('#uploadMediaVideoFile').modal('hide');
         $('#uploadMediaVideo').modal('show');
+
+        return false;
     }
 
     var inputFileVideoLink = $('#uploadMediaVideoLink').find(".hidden-config-file-uploader-video-link").val();
@@ -12990,6 +12994,8 @@ $("body").on("click", ".btn-create-modal-confirm-yes", function (event) {
 
         $('#uploadMediaVideoLink').modal('hide');
         $('#uploadMediaVideo').modal('show');
+
+        return false;
     }
 });
 
