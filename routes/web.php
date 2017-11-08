@@ -41,6 +41,11 @@ Route::get('mediaphoto/{userid}/{filename}', [
     'as' => 'media.photo'
 ]);
 
+Route::get('mediavideofile/{userid}/{filename}', [
+    'uses' => 'GetUploadMediaController@getMediaVideoFile',
+    'as' => 'media.video.file'
+]);
+
 Route::get('/inner-view-display/{post_id}', [
     'uses' => 'PostController@getVIewPost',
     'as' => 'post.inner.view.display'
@@ -60,6 +65,16 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/post-upload-media-photo',[
         'uses' => 'PostController@postUploadMediaPhoto',
         'as' => 'post.upload.mdeia.photo'
+    ]);
+
+    Route::post('/post-media-video-file',[
+        'uses' => 'PostController@postMediaVideoFile',
+        'as' => 'post.mdeia.video.file'
+    ]);
+
+    Route::post('/post-media-video-link',[
+        'uses' => 'PostController@postMediaVideoLink',
+        'as' => 'post.mdeia.video.link'
     ]);
 
     Route::post('/edit-post',[

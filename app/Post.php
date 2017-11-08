@@ -26,4 +26,12 @@ class Post extends Model
     public function photo(){
         return $this->hasMany('App\Photo');
     }
+
+    public function video_file(){
+        return $this->hasMany('App\VideoFile');
+    }
+
+    public function video_link(){
+        return $this->hasMany('App\VideoLink');
+    }
 }

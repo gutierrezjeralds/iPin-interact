@@ -22,7 +22,7 @@
     <a href="/{{$post->user->username}}">
         <div class="media-left view overlay hm-white-sligh d-flex">
             <img src="{{$post->user->avatar}}" class="rounded-circle avatar-img z-depth-0 mr-1 h-2rem"/>
-            <span class="text-ellipsis mt-1">{{$post->user->username}}</span>
+            <span class="text-ellipsis mt-1 mr-1">{{$post->user->username}}</span>
             <div class="mask waves-effect waves-light"></div>
         </div>
     </a>

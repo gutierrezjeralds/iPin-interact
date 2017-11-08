@@ -10,13 +10,15 @@ use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Post;
 use App\Photo;
+use App\VideoLink;
+use App\VideoFile;
 
 class PostController extends Controller
 {
     public function postMediaPhoto(Request $request){
         //Validation
         $this->validate($request, [
-           'photoFile' => 'required',
+           //'photoFile' => 'required',
         ]);
 
         $user = Auth::user();
@@ -47,7 +49,12 @@ class PostController extends Controller
         $storagePhotoDeleted = storage_path() . '\\app\public\\' . $user->id . '\\media\delete\photo\\';
         File::makeDirectory($storagePhotoDeleted, 0775, true, true);
 
-        Session::flash('upload_mdeia', 'Successfully pin your moments!');
+        if ($request -> input("photoFile") == null) {
+            Session::flash('upload_mdeia_null', 'Error occured while uploading your photo. Please retry!');
+        } else{
+            Session::flash('upload_mdeia', 'Successfully pin your moments!');
+        }
+
         return redirect()->back();
 
         //return $request -> all();
@@ -57,10 +64,89 @@ class PostController extends Controller
         $user = Auth::user();
 
         $photo = $request -> file('photo');
-        // $filename = '1609141608152015' . time() . uniqid() . '.png';
+        // $filename = '1609141608152015' . time() . uniqid() . '.' . $video_file -> getClientOriginalExtension();
         $filename = $photo -> getClientOriginalName();
 
         Storage::disk('public')->put($user->id . '/media/photo/' . $filename, File::get($photo));
+    }
+
+    public function postMediaVideoFile(Request $request){
+        //Validation
+        $this->validate($request, [
+           //'video_link' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        $post = new Post;
+        $post -> caption = $request -> caption;
+        $post -> user_id = $user -> id;
+
+        if ( $video_file_request = $request -> file('video_file') ) {
+
+            $filename = '1609141608152015' . time() . uniqid() . '.' .  $video_file_request -> getClientOriginalExtension();
+            //$filename = $video_file_request -> getClientOriginalName();
+
+            Storage::disk('public')->put($user->id . '/media/video/' . $filename, File::get($video_file_request));
+
+            $video_file =  new VideoFile;
+            $video_file -> video_file = $filename;
+            $video_file -> user_id = $user -> id;
+            $video_file -> post_id = 0;
+            $video_file -> save();
+
+            $post -> video_file_id = $video_file -> id;
+        }
+
+        $post -> save();
+        VideoFile::where('user_id', $user->id) -> where('post_id', 0) -> update(['post_id' => $post->id]);
+
+        $storageVideoFileDeleted = storage_path() . '\\app\public\\' . $user->id . '\\media\delete\video\\';
+        File::makeDirectory($storageVideoFileDeleted, 0775, true, true);
+
+        if ($request -> file('video_file') == null) {
+            Session::flash('upload_mdeia_null', 'Error occured while uploading your video file. Please retry!');
+        } else{
+            Session::flash('upload_mdeia', 'Successfully pin your moments!');
+        }
+
+        return redirect()->back();
+        // return $request -> all();
+    }
+
+    public function postMediaVideoLink(Request $request){
+        //Validation
+        $this->validate($request, [
+           //'video_link' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        $post = new Post;
+        $post -> caption = $request -> caption;
+        $post -> user_id = $user -> id;
+
+        if ($request -> input("video_link")) {
+            $video_link =  new VideoLink;
+            $video_link -> video_link = $request -> video_link;
+            $video_link -> user_id = $user -> id;
+            $video_link -> post_id = 0;
+            $video_link -> save();
+
+            $post -> video_link_id = $video_link -> id;
+        }
+
+        $post -> save();
+        VideoLink::where('user_id', $user->id) -> where('post_id', 0) -> update(['post_id' => $post->id]);
+
+        if ($request -> input("video_link") == null) {
+            Session::flash('upload_mdeia_null', 'Error occured while uploading your video link. Please retry!');
+        } else{
+            Session::flash('upload_mdeia', 'Successfully pin your moments!');
+        }
+
+        return redirect()->back();
+        // return $request -> all();
     }
 
     public function postEditPost(Request $request){
@@ -85,14 +171,28 @@ class PostController extends Controller
         $media_photo = Photo::where('post_id', $post_id);
         $photos = Photo::where('post_id', $post_id) -> get();
 
+        $media_video_file = VideoFile::where('post_id', $post_id);
+        $video_files = VideoFile::where('post_id', $post_id) -> get();
+
+        $media_video_link = VideoLink::where('post_id', $post_id);
+
         $post -> delete();
         $media_photo -> delete();
+        $media_video_file -> delete();
+        $media_video_link -> delete();
 
         foreach ($photos as $photo) {
             $old_photo_path = storage_path() . '\\app\public\\' . $user_id . '\\media\photo\\' . $photo -> photo;
             $new_photo_path = storage_path() . '\\app\public\\' . $user_id . '\\media\delete\photo\\' . $photo -> photo;
 
             $move = File::move($old_photo_path, $new_photo_path);
+        }
+
+        foreach ($video_files as $video_file) {
+            $old_video_file_path = storage_path() . '\\app\public\\' . $user_id . '\\media\video\\' . $video_file -> video_file;
+            $new_video_fileo_path = storage_path() . '\\app\public\\' . $user_id . '\\media\delete\video\\' . $video_file -> video_file;
+
+            $move = File::move($old_video_file_path, $new_video_fileo_path);
         }
     }
 

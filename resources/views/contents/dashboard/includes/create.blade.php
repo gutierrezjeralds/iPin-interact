@@ -27,10 +27,10 @@
 	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadPhoto" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload photo" onclick="event.preventDefault(); document.getElementById('ajax-upload-id-photo').click();">
 	                    	<i class="fa fa-camera-retro fa-fw fa-2x py-1 px-1 mt-0 white-text"></i>
 	                	</button>
-	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadPhoto" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload photo">
+	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadAudio" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload audio">
 	                    	<i class="fa fa-headphones fa-fw fa-2x py-1 px-1 mt-0 white-text"></i>
 	                	</button>
-	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadPhoto" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload photo">
+	                    <button class="btn btn-cus-submit btn-for-post rounded py-1 px-1 mx-1" id="btnUploadVideo" type="button" data-toggle="tooltip" data-placement="bottom" title="Upload video">
 	                    	<i class="fa fa-video-camera fa-fw fa-2x py-1 px-1 mt-0 white-text"></i>
 	                	</button>
                 	</div>
@@ -43,5 +43,7 @@
 @section('modal-create')
     <div class="wrapper-modals-create">
         @include('contents.dashboard.includes.create.photo')
+
+        @include('contents.dashboard.includes.create.video')
     </div>
 @endsection

@@ -199,6 +199,10 @@ a{
     height: 2rem !important;
 }
 
+.hr-dashed-default{
+    border-top: 2px dashed rgba(0,0,0,.1);
+}
+
 .wrapper-modals{
     .modal{
         overflow: auto !important;

@@ -8,7 +8,17 @@
 
                 <div class="holder-media-post">
                     @if( $post -> photo_id != 0 )
+
                         @include('contents.dashboard.includes.view.body.photo')
+
+                    @elseif( $post -> video_file_id != 0 )
+
+                        @include('contents.dashboard.includes.view.body.video_file')
+
+                    @elseif( $post -> video_link_id != 0 )
+
+                        @include('contents.dashboard.includes.view.body.video_link')
+
                     @endif
                 </div>
 

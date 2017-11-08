@@ -115,6 +115,42 @@ $("body").on("click", "[data-toggle='tooltip']", function(){
 });
 //End scripts for Tooltips Initialization
 
+//Scripts for context menu in modal show
+function preventContextMenu() {
+    $('.wrapper-modals-create').find('.modal').on('keydown', function (e) {
+        if(event.keyCode == 123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+            return false;
+        }
+        if(e.metaKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)){
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)){
+            return false;
+        }
+    });
+    $('.wrapper-modals-create').find('.modal').on("contextmenu",function(e){
+       return false;
+    });
+}
+
+preventContextMenu();
+//End scripts for context menu in modal show
+
 //Script for stop scrolling body
 $('.modal').on('shown.bs.modal', function () {
     $('body').addClass('body-dont-scroll');

@@ -1,5 +1,5 @@
 <!--Modal: modalConfirmDelete-->
-<div class="modal fade" id="modalConfirm" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
+<div class="modal animated fadeIn" id="modalConfirm" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modalConfirmLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
         <div class="modal-content text-center">
             <div class="modal-header d-flex justify-content-center">

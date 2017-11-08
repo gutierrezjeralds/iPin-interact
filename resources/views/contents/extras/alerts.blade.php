@@ -14,6 +14,12 @@
 		});
 	@endif
 
+	@if(Session::has('upload_mdeia_null'))
+		var uploadMedia = "{{session('upload_mdeia_null')}}";
+		$(document).ready(function(){
+    		toastr["info"](uploadMedia);
+		});
+	@endif
 
     @if (Session::has('status'))
         var status = "{{session('status')}}";

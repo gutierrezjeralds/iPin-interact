@@ -14,4 +14,9 @@ class GetUploadMediaController extends Controller
         $file = Storage::disk('public')->get($user_id . '/media/photo/' . $filename);
         return new Response($file, 200);
     }
+
+    public function getMediaVideoFile($user_id, $filename){
+        $file = Storage::disk('public')->get($user_id . '/media/video/' . $filename);
+        return new Response($file, 200);
+    }
 }

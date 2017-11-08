@@ -24,5 +24,11 @@
                 margin-left: -40px;
             }
         }
+        .holder-upload-media-video{
+            cursor: pointer;
+            &:hover{
+                opacity: .7;
+            }
+        }
 	}
 }

@@ -1,4 +1,4 @@
- <div class="modal animated fadeInLeft holder-upload-media scrollbar-dusty-grass" id="uploadMediaPhoto" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="uploadMediaPhotoLabel" aria-hidden="true">
+ <div class="modal animated fadeIn holder-upload-media scrollbar-dusty-grass" id="uploadMediaPhoto" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="uploadMediaPhotoLabel" aria-hidden="true">
     <div class="modal-dialog modal-notify modal-success modal-md" role="document">
         <div class="modal-content">
             {!! Form::open(['method'=>'POST', 'action'=>'PostController@postMediaPhoto', 'files'=>true]) !!}
@@ -14,7 +14,7 @@
                     <div class="media px-3">
                         <img class="d-flex mr-3" src="{{auth()->user()->avatar}}" alt="Avatar image">
                         <div class="media-body">
-                            <div class="form-group mb-0">
+                            <div class="md-form mb-0">
                                 <div class="caption-parent">
                                     <div class="caption-child">
                                         {!! Form::textarea('caption', null, ['class'=>'form-control', 'id' => 'caption', 'rows' => '3', 'placeholder' => 'Pin your moments...' , 'style'=>"display:none"]) !!}
@@ -24,10 +24,9 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="px-0 mx-0">
                     <div class="media px-3 holder-upload-media-photo justify-content-center">
                         <div class="media-body">
-                            <div class="form-group mb-0" id="photoPreview">
+                            <div class="md-form mb-0" id="photoPreview">
                                 <div id="file-uploader-photo" style="display: none;">Add photos</div>
                                 <input type="hidden" value="0" class="hidden-config-file-uploader-photo">
                             </div>

@@ -7,6 +7,13 @@ $('#btnUploadPhoto').on('click', function() {
     
 });
 
+$('#btnUploadAudio').on('click', function() {
+    
+});
+
+$('#btnUploadVideo').on('click', function() {
+    $('#uploadMediaVideo').modal('show');
+});
 //End scripts for btn create post
 
 //Scripts for upload media photo
@@ -40,6 +47,49 @@ var uploadPhoto = $("#file-uploader-photo").uploadFile({
 });
 //End scripts for upload media photo
 
+//Scripts for upload media video file
+$("#postVideoFile").on('change', function (){
+    var total_file = document.getElementById("postVideoFile").files.length;
+    for(var i = 0; i < total_file; i++) {
+        $(".hidden-config-file-uploader-video-file").val("1");
+        $('.video-url-link').val("").blur();
+
+        $('#videoFilePreview').find('.video-file-upload-preview').prepend("<video controls style='width: 100%'><source src='"+URL.createObjectURL(event.target.files[i])+"' type='video/mp4'></video>");
+
+        $('.btn-upload-media-video-link').removeAttr("disabled");
+        $('#modalConfirm').find('.heading').text('Are you sure you want to discard?');
+        $('#uploadMediaVideo').modal('hide');
+        $('#uploadMediaVideoFile').modal('show');
+    }
+});
+//End scripts for upload media file
+
+//Scripts for upload media video links
+$('.video-url-link').keyup(function(){
+    var url = $('.video-url-link').val();
+    if (url != undefined || url != '') {        
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        if (match && match[2].length) {
+            // Do anything for being valid
+            // if need to change the url to embed url then use below line
+            $(".hidden-config-file-uploader-video-link").val("1");
+            $('.video-url-link').val("").blur();
+            $('input[name="video_link"]').val('https://www.youtube.com/embed/' + match[2]);
+
+            $('#videoObjectLink').attr('src', 'https://www.youtube.com/embed/' + match[2]);
+
+            $('.btn-upload-media-video-link').removeAttr("disabled");
+            $('#modalConfirm').find('.heading').text('Are you sure you want to discard?');
+            $('#uploadMediaVideo').modal('hide');
+            $('#uploadMediaVideoLink').modal('show');
+        } else {
+            // Do anything for not being valid
+        }
+    }
+});
+//End scripts for upload media video links
+
 //Scripts for form submit
 $('form').on('submit', function() {
     $('.btn-pin-post').attr("disabled", "disabled");
@@ -59,6 +109,7 @@ $("body").on("click", ".btn-create-close", function(event){
 
 $("body").on("click", ".btn-create-modal-confirm-yes", function(event){
     event.preventDefault();
+
     var inputFilePhoto = $('#uploadMediaPhoto').find(".hidden-config-file-uploader-photo").val();
     if ( inputFilePhoto != 0 ) {
         $('#btnUploadPhoto').attr("onclick", "event.preventDefault(); document.getElementById('ajax-upload-id-photo[]').click();");
@@ -68,6 +119,26 @@ $("body").on("click", ".btn-create-modal-confirm-yes", function(event){
         commonBtnCreateCloseFunction();
 
         $('#uploadMediaPhoto').modal('hide');
+    }
+    
+    var inputFileVideoFile = $('#uploadMediaVideoLink').find(".hidden-config-file-uploader-video-file").val();
+    if ( inputFileVideoLink != 0 ) {
+        $(".hidden-config-file-uploader-video-file").val("0");
+
+        commonBtnCreateCloseFunction();
+
+        $('#uploadMediaVideoFile').modal('hide');
+        $('#uploadMediaVideo').modal('show');
+    }
+    
+    var inputFileVideoLink = $('#uploadMediaVideoLink').find(".hidden-config-file-uploader-video-link").val();
+    if ( inputFileVideoLink != 0 ) {
+        $(".hidden-config-file-uploader-video-link").val("0");
+
+        commonBtnCreateCloseFunction();
+
+        $('#uploadMediaVideoLink').modal('hide');
+        $('#uploadMediaVideo').modal('show');
     }
 });
 

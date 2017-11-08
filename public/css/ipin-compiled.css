@@ -379,6 +379,10 @@ a:focus {
   height: 2rem !important;
 }
 
+.hr-dashed-default {
+  border-top: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
 .wrapper-modals .modal {
   overflow: auto !important;
 }
@@ -960,7 +964,7 @@ a:focus {
   color: #fff;
   font-family: arial;
   font-weight: normal;
-  padding: 2px 10px;
+  padding: 2px 5px;
   text-decoration: none;
   text-shadow: 0 1px 0 #b23e35;
   cursor: pointer;
@@ -1202,6 +1206,14 @@ header .wrapper-header .navbar-bg .nav-item .header-avatar-img {
   margin-left: -40px;
 }
 
+.wrapper-modals-create .holder-upload-media .holder-upload-media-video {
+  cursor: pointer;
+}
+
+.wrapper-modals-create .holder-upload-media .holder-upload-media-video:hover {
+  opacity: .7;
+}
+
 .view-post-display .holder-media-photo .num-carousel-items {
   position: absolute;
   z-index: 10;
@@ -1225,6 +1237,19 @@ header .wrapper-header .navbar-bg .nav-item .header-avatar-img {
 .view-post-display .holder-caption .caption-parent .caption-child .edit-caption #editPostSave:active,
 .view-post-display .holder-caption .caption-parent .caption-child .edit-caption #editPostSave:focus {
   border: 2px solid #00e25b !important;
+}
+
+.view-post-display video::-internal-media-controls-download-button {
+  display: none;
+}
+
+.view-post-display video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+.view-post-display video::-webkit-media-controls-panel {
+  width: calc(100% + 30px);
+  /* Adjust as needed */
 }
 
 /* Isotope Transitions

@@ -12781,6 +12781,42 @@ $("body").on("click", "[data-toggle='tooltip']", function () {
 });
 //End scripts for Tooltips Initialization
 
+//Scripts for context menu in modal show
+function preventContextMenu() {
+    $('.wrapper-modals-create').find('.modal').on('keydown', function (e) {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.metaKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+    });
+    $('.wrapper-modals-create').find('.modal').on("contextmenu", function (e) {
+        return false;
+    });
+}
+
+preventContextMenu();
+//End scripts for context menu in modal show
+
 //Script for stop scrolling body
 $('.modal').on('shown.bs.modal', function () {
     $('body').addClass('body-dont-scroll');
@@ -12824,6 +12860,11 @@ $('.btn-for-post').on('click', function () {});
 
 $('#btnUploadPhoto').on('click', function () {});
 
+$('#btnUploadAudio').on('click', function () {});
+
+$('#btnUploadVideo').on('click', function () {
+    $('#uploadMediaVideo').modal('show');
+});
 //End scripts for btn create post
 
 //Scripts for upload media photo
@@ -12857,6 +12898,49 @@ var uploadPhoto = $("#file-uploader-photo").uploadFile({
 });
 //End scripts for upload media photo
 
+//Scripts for upload media video file
+$("#postVideoFile").on('change', function () {
+    var total_file = document.getElementById("postVideoFile").files.length;
+    for (var i = 0; i < total_file; i++) {
+        $(".hidden-config-file-uploader-video-file").val("1");
+        $('.video-url-link').val("").blur();
+
+        $('#videoFilePreview').find('.video-file-upload-preview').prepend("<video controls style='width: 100%'><source src='" + URL.createObjectURL(event.target.files[i]) + "' type='video/mp4'></video>");
+
+        $('.btn-upload-media-video-link').removeAttr("disabled");
+        $('#modalConfirm').find('.heading').text('Are you sure you want to discard?');
+        $('#uploadMediaVideo').modal('hide');
+        $('#uploadMediaVideoFile').modal('show');
+    }
+});
+//End scripts for upload media file
+
+//Scripts for upload media video links
+$('.video-url-link').keyup(function () {
+    var url = $('.video-url-link').val();
+    if (url != undefined || url != '') {
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        if (match && match[2].length) {
+            // Do anything for being valid
+            // if need to change the url to embed url then use below line
+            $(".hidden-config-file-uploader-video-link").val("1");
+            $('.video-url-link').val("").blur();
+            $('input[name="video_link"]').val('https://www.youtube.com/embed/' + match[2]);
+
+            $('#videoObjectLink').attr('src', 'https://www.youtube.com/embed/' + match[2]);
+
+            $('.btn-upload-media-video-link').removeAttr("disabled");
+            $('#modalConfirm').find('.heading').text('Are you sure you want to discard?');
+            $('#uploadMediaVideo').modal('hide');
+            $('#uploadMediaVideoLink').modal('show');
+        } else {
+            // Do anything for not being valid
+        }
+    }
+});
+//End scripts for upload media video links
+
 //Scripts for form submit
 $('form').on('submit', function () {
     $('.btn-pin-post').attr("disabled", "disabled");
@@ -12876,6 +12960,7 @@ $("body").on("click", ".btn-create-close", function (event) {
 
 $("body").on("click", ".btn-create-modal-confirm-yes", function (event) {
     event.preventDefault();
+
     var inputFilePhoto = $('#uploadMediaPhoto').find(".hidden-config-file-uploader-photo").val();
     if (inputFilePhoto != 0) {
         $('#btnUploadPhoto').attr("onclick", "event.preventDefault(); document.getElementById('ajax-upload-id-photo[]').click();");
@@ -12885,6 +12970,26 @@ $("body").on("click", ".btn-create-modal-confirm-yes", function (event) {
         commonBtnCreateCloseFunction();
 
         $('#uploadMediaPhoto').modal('hide');
+    }
+
+    var inputFileVideoFile = $('#uploadMediaVideoLink').find(".hidden-config-file-uploader-video-file").val();
+    if (inputFileVideoLink != 0) {
+        $(".hidden-config-file-uploader-video-file").val("0");
+
+        commonBtnCreateCloseFunction();
+
+        $('#uploadMediaVideoFile').modal('hide');
+        $('#uploadMediaVideo').modal('show');
+    }
+
+    var inputFileVideoLink = $('#uploadMediaVideoLink').find(".hidden-config-file-uploader-video-link").val();
+    if (inputFileVideoLink != 0) {
+        $(".hidden-config-file-uploader-video-link").val("0");
+
+        commonBtnCreateCloseFunction();
+
+        $('#uploadMediaVideoLink').modal('hide');
+        $('#uploadMediaVideo').modal('show');
     }
 });
 

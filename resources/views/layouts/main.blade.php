@@ -19,10 +19,10 @@
 <body class="fixed-sn scrollbar-night-fade {{ Route::currentRouteName() == 'profile' ? 'white-skin' : '' }}" data-spy="scroll" data-target="#scrollspy" data-offset="15">
 
     <!-- Pre loader -->
-    <!-- <div id="mdb-preloader" class="flex-center white">
+    <div id="mdb-preloader" class="flex-center white">
         <div id="preloader-markup">
-            <div class="preloader-wrapper medium active">
-                <div class="spinner-layer spinner-green-only">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                         </div><div class="gap-patch">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- END Pre loader -->
 
     <header>
