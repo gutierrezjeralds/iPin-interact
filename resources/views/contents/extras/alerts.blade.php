@@ -14,10 +14,10 @@
 		});
 	@endif
 
-	@if(Session::has('upload_mdeia_null'))
-		var uploadMedia = "{{session('upload_mdeia_null')}}";
+	@if(Session::has('upload_mdeia_error'))
+		var uploadMedia = "{{session('upload_mdeia_error')}}";
 		$(document).ready(function(){
-    		toastr["info"](uploadMedia);
+    		toastr["error"](uploadMedia);
 		});
 	@endif
 

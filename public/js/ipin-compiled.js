@@ -130,6 +130,7 @@ __webpack_require__(11);
 // require('../../../node_modules/masonry-layout/dist/masonry.pkgd.min');
 // require('../../../node_modules/isotope-layout/dist/isotope.pkgd.min');
 // require('../../../node_modules/imagesloaded/imagesloaded.pkgd.min');
+// require('../../../node_modules/video.js/dist/video.min');
 __webpack_require__(12);
 __webpack_require__(13);
 __webpack_require__(14);
@@ -13019,6 +13020,8 @@ var postCaptionElement = null;
 var postCaptionEditDivElement = null;
 var postCaptionActionElement = null;
 var postCaptionEditElement = null;
+var postVideoPlayButtonElement = null;
+var postVideoElement = null;
 
 //Scripts for edit post
 $("body").on("click", ".edit-post", function (event) {
@@ -13141,6 +13144,36 @@ $("body").on("click", ".copyButtonURL", function (event) {
 });
 //End scripts for copy post URL
 
+//Scripts for play video
+$("body").on("click", ".holder-media-video-file", function (event) {
+    event.preventDefault();
+    postVideoPlayButtonElement = $(event.target).closest('.view-post-display').find('.btn-play-video');
+    postVideoElement = $(event.target).closest('.view-post-display').find('video');
+
+    $(postVideoPlayButtonElement).css("display", "none");
+    postVideoElement.get(0).play();
+    postVideoElement.attr('controls', true);;
+});
+//End scripts for play video
+
+//Scripts for inner view display
+$("body").on("click", ".inner-view-display", function (event) {
+    event.preventDefault();
+    postId = $(event.target).closest('.view-post-display').attr("tack").substring(8);
+
+    $.ajax({
+        url: '/inner-view-display/' + postId,
+        method: 'GET',
+        success: function success(data) {
+            //alert(data);
+            $('#modalViewDisplay').find('.modal-body').html(data);
+            $('#modalViewDisplay').modal('show');
+            //console.log(data);
+        }
+    });
+});
+//End scripts for inner view display
+
 //Scripts for corousel item number display
 function postCarouselItem() {
     jQuery(".holder-media-photo").each(function () {
@@ -13163,24 +13196,6 @@ $(document).ajaxSuccess(function () {
     postCarouselItem();
 });
 //End script for all each function for ajax after success
-
-//Scripts for inner view display
-$("body").on("click", ".inner-view-display", function (event) {
-    event.preventDefault();
-    postId = $(event.target).closest('.view-post-display').attr("tack").substring(8);
-
-    $.ajax({
-        url: '/inner-view-display/' + postId,
-        method: 'GET',
-        success: function success(data) {
-            //alert(data);
-            $('#modalViewDisplay').find('.modal-body').html(data);
-            $('#modalViewDisplay').modal('show');
-            //console.log(data);
-        }
-    });
-});
-//End scripts for inner view display
 
 /***/ }),
 /* 17 */

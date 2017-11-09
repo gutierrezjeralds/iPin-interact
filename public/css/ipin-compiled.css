@@ -1239,17 +1239,34 @@ header .wrapper-header .navbar-bg .nav-item .header-avatar-img {
   border: 2px solid #00e25b !important;
 }
 
-.view-post-display video::-internal-media-controls-download-button {
+.view-post-display .holder-media-video-file .btn-play-video {
+  /* 1.5em = 45px default */
+  /* Align center */
+  left: 50%;
+  top: 50%;
+  margin-left: -2em;
+  margin-top: -1.75em;
+}
+
+.view-post-display .holder-media-video-file video::-internal-media-controls-download-button {
   display: none;
 }
 
-.view-post-display video::-webkit-media-controls-enclosure {
+.view-post-display .holder-media-video-file video::-webkit-media-controls-enclosure {
   overflow: hidden;
 }
 
-.view-post-display video::-webkit-media-controls-panel {
+.view-post-display .holder-media-video-file video::-webkit-media-controls-panel {
   width: calc(100% + 30px);
   /* Adjust as needed */
+}
+
+.view-post-display .holder-media-video-file:hover {
+  cursor: pointer;
+}
+
+.view-post-display .holder-media-video-file:hover .btn-play-video {
+  color: red;
 }
 
 /* Isotope Transitions

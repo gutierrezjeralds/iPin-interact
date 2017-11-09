@@ -49,8 +49,8 @@ class PostController extends Controller
         $storagePhotoDeleted = storage_path() . '\\app\public\\' . $user->id . '\\media\delete\photo\\';
         File::makeDirectory($storagePhotoDeleted, 0775, true, true);
 
-        if ($request -> input("photoFile") == null) {
-            Session::flash('upload_mdeia_null', 'Error occured while uploading your photo. Please retry!');
+        if (is_null($request -> input("photoFile"))) {
+            Session::flash('upload_mdeia_error', 'Error occured while uploading your photo. Please retry!');
         } else{
             Session::flash('upload_mdeia', 'Successfully pin your moments!');
         }
@@ -104,8 +104,8 @@ class PostController extends Controller
         $storageVideoFileDeleted = storage_path() . '\\app\public\\' . $user->id . '\\media\delete\video\\';
         File::makeDirectory($storageVideoFileDeleted, 0775, true, true);
 
-        if ($request -> file('video_file') == null) {
-            Session::flash('upload_mdeia_null', 'Error occured while uploading your video file. Please retry!');
+        if (is_null($request -> file('video_file'))) {
+            Session::flash('upload_mdeia_error', 'Error occured while uploading your video file. Please retry!');
         } else{
             Session::flash('upload_mdeia', 'Successfully pin your moments!');
         }
@@ -139,8 +139,8 @@ class PostController extends Controller
         $post -> save();
         VideoLink::where('user_id', $user->id) -> where('post_id', 0) -> update(['post_id' => $post->id]);
 
-        if ($request -> input("video_link") == null) {
-            Session::flash('upload_mdeia_null', 'Error occured while uploading your video link. Please retry!');
+        if (is_null($request -> input("video_link"))) {
+            Session::flash('upload_mdeia_error', 'Error occured while uploading your video link. Please retry!');
         } else{
             Session::flash('upload_mdeia', 'Successfully pin your moments!');
         }

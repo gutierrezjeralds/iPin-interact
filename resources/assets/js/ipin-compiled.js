@@ -25,6 +25,7 @@ require('../../../node_modules/mdbootstrap/js/bootstrap.min');
 // require('../../../node_modules/masonry-layout/dist/masonry.pkgd.min');
 // require('../../../node_modules/isotope-layout/dist/isotope.pkgd.min');
 // require('../../../node_modules/imagesloaded/imagesloaded.pkgd.min');
+// require('../../../node_modules/video.js/dist/video.min');
 require('./components/isotope');
 require('./components/jquery.uploadfile');
 require('./components/common');

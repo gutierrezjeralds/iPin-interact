@@ -13,4 +13,4 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/ipin-compiled.js', 'public/js')
    .sass('resources/assets/sass/ipin-compiled.scss', 'public/css')
-    .sass('resources/assets/sass/error.scss', 'public/css');
+   .sass('resources/assets/sass/error.scss', 'public/css');
