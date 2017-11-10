@@ -1,3 +1,11 @@
+//Script for Ajax token
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+//End script for Ajax token
+
 //Scripts for item view layout
 function itemViewLayout() {
     $('#post-view').imagesLoaded( function(){
@@ -13,7 +21,14 @@ jQuery(document).ready(function($){
 //End scripts for item view layout
 
 //Script for user cliked back button when logout
+var pAsValue = 0;
+$("body").on("click", function() {
+    pAsValue = 1;
+    CheckTheUserLogout();
+});
+
 CheckTheUserLogout();
+
 function CheckTheUserLogout() {
     $.ajax({
         url: "/post/auth/secure",
@@ -22,11 +37,17 @@ function CheckTheUserLogout() {
         success: function (response) {
             if (response==0) {
                 if (urlName == 'home' || urlName == 'profile') {
-                    $('body').css("display", "none");
-                    location.href="/login";
+                    if (pAsValue == 1) {
+                        $('#modalExpired').modal('show');
+                        // $('body').removeClass('body-dont-scroll');
+                    } else{
+                        $('body').css("display", "none");
+                        location.href="/login";
+                    }
                 }
             }
             else {
+                pAsValue = 0;
                 //Do Nothing
             }
         },
@@ -37,48 +58,49 @@ function CheckTheUserLogout() {
 }
 //End script for user cliked back button when logout
 
-//Script for Ajax token
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-//End script for Ajax token
-
-//Scripts for post ajax loading more
-var postPage = 1;
-$(window).scroll(function() {
-    if( $(window).scrollTop() + $(window).height() >= $(document).height() ) {
-        postPage++;
-        
-        if ( postPage <= postPageCount) {
-            loadMoreData(postPage);
-        } else {
-            $('.ajax-post-load-more').css("display","none");
-            $('.alert-no-more-stories').css("display","block");
-        }
-    }
-});
-
-function loadMoreData(postPage){
-    $.ajax({
-        url: '?page=' + postPage,
-        type: "get",
-        beforeSubmit: function(){
-            $('.ajax-post-load-more').css("display","block");
-        },
-        success: function(data){
-            // require('../../../../node_modules/video.js/dist/video.min');
-            $('.dropdown-toggle').dropdown();
-            $("#post-view").append(data.html);
-        },
-        error: function(xhr,status,error){
-            console.log('Server not responding...');
+if (urlName == 'home' || urlName == 'profile') {
+    //Scripts for post ajax loading more
+    var postPage = 1;
+    $(window).scroll(function() {
+        if( $(window).scrollTop() + $(window).height() >= $(document).height() ) {
+            postPage++;
+            
+            if ( postPage <= postPageCount) {
+                loadMoreData(postPage);
+            } else {
+                $('.ajax-post-load-more').css("display","none");
+                $('.alert-no-more-stories').css("display","block");
+            }
         }
     });
-}
-//End scripts for post ajax loading more
 
+    function loadMoreData(postPage){
+        $.ajax({
+            url: '?page=' + postPage,
+            type: "get",
+            beforeSubmit: function(){
+                $('.ajax-post-load-more').css("display","block");
+            },
+            success: function(data){
+                // require('../../../../node_modules/video.js/dist/video.min');
+                $('.dropdown-toggle').dropdown();
+                $("#post-view").append(data.html);
+            },
+            error: function(xhr,status,error){
+                console.log('Server not responding...');
+            }
+        });
+    }
+    //End scripts for post ajax loading more
+
+    //Scripts for contenteditable paste as a plain text
+    // document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
+    //     e.preventDefault();
+    //     var text = e.clipboardData.getData("text/plain");
+    //     document.execCommand("insertHTML", false, text);
+    // });
+    //End scripts for contenteditable paste as a plain text
+}
 
 //Script for dropdown menu click ones
 $('.dropdown-toggle').dropdown();
@@ -94,16 +116,6 @@ $('.carousel').carousel({
     interval: 1000 * 10
 })
 //End scripts for carousel interval
-
-//Scripts for contenteditable paste as a plain text
-if (urlName == 'home') {
-    // document.querySelector("div[contenteditable]").addEventListener("paste", function(e) {
-    //     e.preventDefault();
-    //     var text = e.clipboardData.getData("text/plain");
-    //     document.execCommand("insertHTML", false, text);
-    // });
-}
-//End scripts for contenteditable paste as a plain text
 
 //Scripts for Tooltips Initialization
 $(function () {
@@ -150,25 +162,6 @@ function preventContextMenu() {
 
 preventContextMenu();
 //End scripts for context menu in modal show
-
-//Script for stop scrolling body
-$('.modal').on('shown.bs.modal', function () {
-    $('body').addClass('body-dont-scroll');
-});
-
-$('.modal').on('hidden.bs.modal', function () {
-    $('body').removeClass('body-dont-scroll');
-});
-//End script for stop scrolling body
-
-//Script for modal confirm
-$("body").on("click", ".btn-modal-confirm-no", function(event){
-    event.preventDefault();
-    $('#modalConfirm').find('#btnModalConfirmYes').removeClass('btn-create-modal-confirm-yes');
-    $('#modalConfirm').find('#btnModalConfirmYes').removeClass('btn-delete-post-modal-confirm-yes');
-    $('#modalConfirm').modal('hide');
-});
-//End script for modal confirm
 
 //Scripts for navbar left
 $(".button-collapse").sideNav();

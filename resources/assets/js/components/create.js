@@ -34,6 +34,7 @@ var uploadPhoto = $("#file-uploader-photo").uploadFile({
             $("html,body").animate({ scrollTop: 0 }, "slow");
         }
     	$('#uploadMediaPhoto').modal('show');
+        $('body').addClass('body-dont-scroll');
     },
     onSuccess: function (files, data) {
     	if(files != ""){
@@ -60,6 +61,7 @@ $("#postVideoFile").on('change', function (){
         $('#modalConfirm').find('.heading').text('Are you sure you want to discard?');
         $('#uploadMediaVideo').modal('hide');
         $('#uploadMediaVideoFile').modal('show');
+        $('body').addClass('body-dont-scroll');
     }
 });
 //End scripts for upload media file
@@ -155,5 +157,7 @@ function commonBtnCreateCloseFunction(){
     $('.btn-pin-post').attr("disabled", "disabled");
 
     $('#modalConfirm').modal('hide');
+    $('#modalConfirm').find('#btnModalConfirmYes').removeClass('btn-create-modal-confirm-yes');
+    $('body').removeClass('body-dont-scroll');
 }
 //End scripts for close create

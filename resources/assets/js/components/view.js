@@ -5,6 +5,7 @@ var postCaptionEditDivElement = null;
 var postCaptionActionElement = null;
 var postCaptionEditElement = null;
 var postVideoPlayButtonElement = null;
+var postVideoFileElement = null;
 var postVideoElement = null;
 
 //Scripts for edit post
@@ -56,7 +57,9 @@ $("body").on("click", ".delete-post", function(event){
 
     $('#modalConfirm').find('.heading').text('Are you sure you want to delete?');
     $('#modalConfirm').find('#btnModalConfirmYes').addClass('btn-delete-post-modal-confirm-yes');
+    $('#modalConfirm').find('#btnModalConfirmNo').addClass('btn-delete-post-modal-confirm-no');
     $('#modalConfirm').modal('show');
+    $('body').addClass('body-dont-scroll');
 });
 
 $("body").on("click", ".btn-delete-post-modal-confirm-yes", function(event){
@@ -69,9 +72,17 @@ $("body").on("click", ".btn-delete-post-modal-confirm-yes", function(event){
             $("div[tack='20010311"+postId+"']").remove();
             toastr["success"]("Successfully deleted your post.");
             $('#modalConfirm').modal('hide');
+            $('#modalConfirm').find('#btnModalConfirmNo').removeClass('btn-delete-post-modal-confirm-no');
+            $('body').removeClass('body-dont-scroll');
             //console.log(data);
         }
     });
+});
+
+$("body").on("click", ".btn-delete-post-modal-confirm-no", function(event){
+    event.preventDefault();
+    $('#modalConfirm').find('#btnModalConfirmNo').removeClass('btn-delete-post-modal-confirm-no');
+    $('body').removeClass('body-dont-scroll');
 });
 //End scripts for delete post
 
@@ -135,10 +146,12 @@ $("body").on("click", ".holder-media-video-file", function(event) {
     event.preventDefault();
     postVideoPlayButtonElement = $(event.target).closest('.view-post-display').find('.btn-play-video');
     postVideoElement = $(event.target).closest('.view-post-display').find('video');
+    postVideoFileElement = $(event.target).closest('.view-post-display').find('.holder-media-video-file');
 
     $(postVideoPlayButtonElement).css("display", "none");
     postVideoElement.get(0).play();
     postVideoElement.attr('controls',true);;
+    postVideoFileElement.addClass('inner-view-display')
 });
 //End scripts for play video
 
@@ -146,6 +159,9 @@ $("body").on("click", ".holder-media-video-file", function(event) {
 $("body").on("click", ".inner-view-display", function(event) {
     event.preventDefault();
     postId = $(event.target).closest('.view-post-display').attr("tack").substring(8);
+    postVideoElement = $(event.target).closest('.view-post-display').find('video');
+
+    var postVideoElementFind = postVideoElement.html();
 
      $.ajax({
         url:  '/inner-view-display/' + postId,
@@ -154,9 +170,17 @@ $("body").on("click", ".inner-view-display", function(event) {
             //alert(data);
             $('#modalViewDisplay').find('.modal-body').html(data);
             $('#modalViewDisplay').modal('show');
+            $('body').addClass('body-dont-scroll');
+            if (postVideoElementFind != undefined || postVideoElementFind != null) {
+                postVideoElement.get(0).pause();
+            }
             //console.log(data);
         }
     });
+});
+
+$('#modalViewDisplay').on('hidden.bs.modal', function () {
+    $('body').removeClass('body-dont-scroll');
 });
 //End scripts for inner view display
 
