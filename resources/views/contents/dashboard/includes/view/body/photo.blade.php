@@ -1,5 +1,5 @@
 <div class="holder-media-photo">
-    <div id="media-photo-20010311{{$post->id}}" class="carousel slide carousel-fade pb-2 inner-view-display" data-ride="carousel">
+    <div id="media-photo-20010311{{$post->id}}" class="carousel slide carousel-fade pb-2" data-ride="carousel">
         @foreach($post->photo as $mediaPhoto)
             @if($loop->count > 1)
                 @if($loop->first)
@@ -16,7 +16,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             @foreach($post->photo as $mediaPhoto)
-                <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
+                <div class="carousel-item inner-view-display {{ $loop->first ? ' active' : '' }}">
                     <img class="d-block w-100 wow fadeIn" data-wow-delay="0.5s" src="{{ route('media.photo', ['user_id' => $post -> user_id, 'filename' => $mediaPhoto -> photo])}} " alt="Media photo">
                 </div>
             @endforeach
